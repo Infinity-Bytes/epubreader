@@ -37,5 +37,6 @@
 
 -(void) createChapters: (NSNotification *) notificacion{
     NSDictionary *userInfo = [notificacion userInfo];
+    [[self webViewDelegate] createChapters: [userInfo objectForKey:@"chapters"]];
 }
 @end

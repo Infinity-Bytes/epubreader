@@ -10,4 +10,6 @@
 
 @protocol IWebViewDelegate <NSObject>
 
+-(void)createChapters: (NSArray *) chapters;
+
 @end
