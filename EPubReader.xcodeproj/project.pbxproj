@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E8B6ACE15D4318B00EE70B5 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6ACD15D4318B00EE70B5 /* Chapter.m */; };
+		7E8B6AD215D436C100EE70B5 /* vhugo.epub in Resources */ = {isa = PBXBuildFile; fileRef = 7E8B6AD115D436C100EE70B5 /* vhugo.epub */; };
+		7E8B6B9E15D441CA00EE70B5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8B6AD415D43D0E00EE70B5 /* libz.1.2.5.dylib */; };
+		7E8B6B9F15D441D100EE70B5 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8B6AD615D43D5600EE70B5 /* libxml2.2.7.3.dylib */; };
+		7E8B6BD215D442F300EE70B5 /* EPubService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BD115D442F300EE70B5 /* EPubService.m */; };
+		7E8B6BE515D4464700EE70B5 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BDB15D4464700EE70B5 /* ioapi.c */; };
+		7E8B6BE615D4464700EE70B5 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BDD15D4464700EE70B5 /* mztools.c */; };
+		7E8B6BE715D4464700EE70B5 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BDF15D4464700EE70B5 /* unzip.c */; };
+		7E8B6BE815D4464700EE70B5 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BE115D4464700EE70B5 /* zip.c */; };
+		7E8B6C0815D4465000EE70B5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BED15D4465000EE70B5 /* CXMLDocument_CreationExtensions.m */; };
+		7E8B6C0915D4465000EE70B5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BEF15D4465000EE70B5 /* CXMLNode_CreationExtensions.m */; };
+		7E8B6C0A15D4465000EE70B5 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BF115D4465000EE70B5 /* CXHTMLDocument.m */; };
+		7E8B6C0B15D4465000EE70B5 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BF315D4465000EE70B5 /* CXMLDocument.m */; };
+		7E8B6C0C15D4465000EE70B5 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BF515D4465000EE70B5 /* CXMLDocument_PrivateExtensions.m */; };
+		7E8B6C0D15D4465000EE70B5 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BF715D4465000EE70B5 /* CXMLElement.m */; };
+		7E8B6C0E15D4465000EE70B5 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BF915D4465000EE70B5 /* CXMLElement_CreationExtensions.m */; };
+		7E8B6C0F15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BFB15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.m */; };
+		7E8B6C1015D4465000EE70B5 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BFD15D4465000EE70B5 /* CXMLNamespaceNode.m */; };
+		7E8B6C1115D4465000EE70B5 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6BFF15D4465000EE70B5 /* CXMLNode.m */; };
+		7E8B6C1215D4465000EE70B5 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C0115D4465000EE70B5 /* CXMLNode_PrivateExtensions.m */; };
+		7E8B6C1315D4465000EE70B5 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C0315D4465000EE70B5 /* CXMLNode_XPathExtensions.m */; };
+		7E8B6C1415D4465000EE70B5 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C0615D4465000EE70B5 /* CTidy.m */; };
+		7E8B6C1615D4478600EE70B5 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C1515D4478600EE70B5 /* ZipArchive.mm */; };
+		7EEE601815D317B700039462 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601715D317B700039462 /* UIKit.framework */; };
+		7EEE601A15D317B700039462 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601915D317B700039462 /* Foundation.framework */; };
+		7EEE601C15D317B700039462 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601B15D317B700039462 /* CoreGraphics.framework */; };
+		7EEE602215D317B700039462 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE602015D317B700039462 /* InfoPlist.strings */; };
+		7EEE602415D317B700039462 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE602315D317B700039462 /* main.m */; };
+		7EEE602815D317B700039462 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE602715D317B700039462 /* AppDelegate.m */; };
+		7EEE607815D3191200039462 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE607715D3191200039462 /* QuartzCore.framework */; };
+		7EEE60A015D31D0800039462 /* MasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE609F15D31D0800039462 /* MasterController.m */; };
+		7EEE60A515D31DAC00039462 /* EPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE60A315D31DAC00039462 /* EPubViewController.m */; };
+		7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE60A415D31DAC00039462 /* EPubViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7E8B6ACC15D4318B00EE70B5 /* Chapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
+		7E8B6ACD15D4318B00EE70B5 /* Chapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		7E8B6AD015D4346500EE70B5 /* IEPubDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEPubDelegate.h; sourceTree = "<group>"; };
+		7E8B6AD115D436C100EE70B5 /* vhugo.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = vhugo.epub; sourceTree = "<group>"; };
+		7E8B6AD415D43D0E00EE70B5 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		7E8B6AD615D43D5600EE70B5 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
+		7E8B6B9615D4416D00EE70B5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7E8B6BCF15D442E700EE70B5 /* IEPubService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEPubService.h; sourceTree = "<group>"; };
+		7E8B6BD015D442F300EE70B5 /* EPubService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPubService.h; sourceTree = "<group>"; };
+		7E8B6BD115D442F300EE70B5 /* EPubService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPubService.m; sourceTree = "<group>"; };
+		7E8B6BDA15D4464700EE70B5 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		7E8B6BDB15D4464700EE70B5 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		7E8B6BDC15D4464700EE70B5 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		7E8B6BDD15D4464700EE70B5 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		7E8B6BDE15D4464700EE70B5 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		7E8B6BDF15D4464700EE70B5 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		7E8B6BE015D4464700EE70B5 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		7E8B6BE115D4464700EE70B5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		7E8B6BE215D4464700EE70B5 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		7E8B6BE315D4464700EE70B5 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		7E8B6BEC15D4465000EE70B5 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
+		7E8B6BED15D4465000EE70B5 /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
+		7E8B6BEE15D4465000EE70B5 /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
+		7E8B6BEF15D4465000EE70B5 /* CXMLNode_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_CreationExtensions.m; sourceTree = "<group>"; };
+		7E8B6BF015D4465000EE70B5 /* CXHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHTMLDocument.h; sourceTree = "<group>"; };
+		7E8B6BF115D4465000EE70B5 /* CXHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHTMLDocument.m; sourceTree = "<group>"; };
+		7E8B6BF215D4465000EE70B5 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
+		7E8B6BF315D4465000EE70B5 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument.m; sourceTree = "<group>"; };
+		7E8B6BF415D4465000EE70B5 /* CXMLDocument_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_PrivateExtensions.h; sourceTree = "<group>"; };
+		7E8B6BF515D4465000EE70B5 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
+		7E8B6BF615D4465000EE70B5 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement.h; sourceTree = "<group>"; };
+		7E8B6BF715D4465000EE70B5 /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement.m; sourceTree = "<group>"; };
+		7E8B6BF815D4465000EE70B5 /* CXMLElement_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement_CreationExtensions.h; sourceTree = "<group>"; };
+		7E8B6BF915D4465000EE70B5 /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
+		7E8B6BFA15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement_ElementTreeExtensions.h; sourceTree = "<group>"; };
+		7E8B6BFB15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_ElementTreeExtensions.m; sourceTree = "<group>"; };
+		7E8B6BFC15D4465000EE70B5 /* CXMLNamespaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNamespaceNode.h; sourceTree = "<group>"; };
+		7E8B6BFD15D4465000EE70B5 /* CXMLNamespaceNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNamespaceNode.m; sourceTree = "<group>"; };
+		7E8B6BFE15D4465000EE70B5 /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode.h; sourceTree = "<group>"; };
+		7E8B6BFF15D4465000EE70B5 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
+		7E8B6C0015D4465000EE70B5 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
+		7E8B6C0115D4465000EE70B5 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
+		7E8B6C0215D4465000EE70B5 /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
+		7E8B6C0315D4465000EE70B5 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
+		7E8B6C0515D4465000EE70B5 /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
+		7E8B6C0615D4465000EE70B5 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
+		7E8B6C0715D4465000EE70B5 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		7E8B6C1515D4478600EE70B5 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		7EEE601315D317B700039462 /* EPubReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPubReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EEE601715D317B700039462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7EEE601915D317B700039462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7EEE601B15D317B700039462 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7EEE601F15D317B700039462 /* EPubReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EPubReader-Info.plist"; sourceTree = "<group>"; };
+		7EEE602115D317B700039462 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7EEE602315D317B700039462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7EEE602515D317B700039462 /* EPubReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EPubReader-Prefix.pch"; sourceTree = "<group>"; };
+		7EEE602715D317B700039462 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7EEE607715D3191200039462 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7EEE607B15D3196500039462 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7EEE609915D31B4500039462 /* IWebViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IWebViewDelegate.h; sourceTree = "<group>"; };
+		7EEE609E15D31D0800039462 /* MasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterController.h; sourceTree = "<group>"; };
+		7EEE609F15D31D0800039462 /* MasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterController.m; sourceTree = "<group>"; };
+		7EEE60A215D31DAC00039462 /* EPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPubViewController.h; sourceTree = "<group>"; };
+		7EEE60A315D31DAC00039462 /* EPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPubViewController.m; sourceTree = "<group>"; };
+		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EEE601015D317B700039462 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E8B6B9F15D441D100EE70B5 /* libxml2.2.7.3.dylib in Frameworks */,
+				7E8B6B9E15D441CA00EE70B5 /* libz.1.2.5.dylib in Frameworks */,
+				7EEE607815D3191200039462 /* QuartzCore.framework in Frameworks */,
+				7EEE601815D317B700039462 /* UIKit.framework in Frameworks */,
+				7EEE601A15D317B700039462 /* Foundation.framework in Frameworks */,
+				7EEE601C15D317B700039462 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E8B6ACF15D4343300EE70B5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6AD015D4346500EE70B5 /* IEPubDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		7E8B6AD315D436C700EE70B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6AD115D436C100EE70B5 /* vhugo.epub */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7E8B6BD715D445F700EE70B5 /* TouchXML */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BEA15D4465000EE70B5 /* Source */,
+			);
+			name = TouchXML;
+			sourceTree = "<group>";
+		};
+		7E8B6BD815D4460600EE70B5 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BD915D4464700EE70B5 /* minizip */,
+				7E8B6BE315D4464700EE70B5 /* ZipArchive.h */,
+				7E8B6C1515D4478600EE70B5 /* ZipArchive.mm */,
+			);
+			name = ZipArchive;
+			sourceTree = "<group>";
+		};
+		7E8B6BD915D4464700EE70B5 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BDA15D4464700EE70B5 /* crypt.h */,
+				7E8B6BDB15D4464700EE70B5 /* ioapi.c */,
+				7E8B6BDC15D4464700EE70B5 /* ioapi.h */,
+				7E8B6BDD15D4464700EE70B5 /* mztools.c */,
+				7E8B6BDE15D4464700EE70B5 /* mztools.h */,
+				7E8B6BDF15D4464700EE70B5 /* unzip.c */,
+				7E8B6BE015D4464700EE70B5 /* unzip.h */,
+				7E8B6BE115D4464700EE70B5 /* zip.c */,
+				7E8B6BE215D4464700EE70B5 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		7E8B6BEA15D4465000EE70B5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BEB15D4465000EE70B5 /* Creation */,
+				7E8B6BF015D4465000EE70B5 /* CXHTMLDocument.h */,
+				7E8B6BF115D4465000EE70B5 /* CXHTMLDocument.m */,
+				7E8B6BF215D4465000EE70B5 /* CXMLDocument.h */,
+				7E8B6BF315D4465000EE70B5 /* CXMLDocument.m */,
+				7E8B6BF415D4465000EE70B5 /* CXMLDocument_PrivateExtensions.h */,
+				7E8B6BF515D4465000EE70B5 /* CXMLDocument_PrivateExtensions.m */,
+				7E8B6BF615D4465000EE70B5 /* CXMLElement.h */,
+				7E8B6BF715D4465000EE70B5 /* CXMLElement.m */,
+				7E8B6BF815D4465000EE70B5 /* CXMLElement_CreationExtensions.h */,
+				7E8B6BF915D4465000EE70B5 /* CXMLElement_CreationExtensions.m */,
+				7E8B6BFA15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.h */,
+				7E8B6BFB15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.m */,
+				7E8B6BFC15D4465000EE70B5 /* CXMLNamespaceNode.h */,
+				7E8B6BFD15D4465000EE70B5 /* CXMLNamespaceNode.m */,
+				7E8B6BFE15D4465000EE70B5 /* CXMLNode.h */,
+				7E8B6BFF15D4465000EE70B5 /* CXMLNode.m */,
+				7E8B6C0015D4465000EE70B5 /* CXMLNode_PrivateExtensions.h */,
+				7E8B6C0115D4465000EE70B5 /* CXMLNode_PrivateExtensions.m */,
+				7E8B6C0215D4465000EE70B5 /* CXMLNode_XPathExtensions.h */,
+				7E8B6C0315D4465000EE70B5 /* CXMLNode_XPathExtensions.m */,
+				7E8B6C0415D4465000EE70B5 /* Tidy */,
+				7E8B6C0715D4465000EE70B5 /* TouchXML.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7E8B6BEB15D4465000EE70B5 /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BEC15D4465000EE70B5 /* CXMLDocument_CreationExtensions.h */,
+				7E8B6BED15D4465000EE70B5 /* CXMLDocument_CreationExtensions.m */,
+				7E8B6BEE15D4465000EE70B5 /* CXMLNode_CreationExtensions.h */,
+				7E8B6BEF15D4465000EE70B5 /* CXMLNode_CreationExtensions.m */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		7E8B6C0415D4465000EE70B5 /* Tidy */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6C0515D4465000EE70B5 /* CTidy.h */,
+				7E8B6C0615D4465000EE70B5 /* CTidy.m */,
+			);
+			path = Tidy;
+			sourceTree = "<group>";
+		};
+		7EEE600815D317B700039462 = {
+			isa = PBXGroup;
+			children = (
+				7EEE601D15D317B700039462 /* EPubReader */,
+				7EEE601615D317B700039462 /* Frameworks */,
+				7EEE601415D317B700039462 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EEE601415D317B700039462 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE601315D317B700039462 /* EPubReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EEE601615D317B700039462 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE607B15D3196500039462 /* libz.dylib */,
+				7E8B6AD415D43D0E00EE70B5 /* libz.1.2.5.dylib */,
+				7E8B6AD615D43D5600EE70B5 /* libxml2.2.7.3.dylib */,
+				7EEE607715D3191200039462 /* QuartzCore.framework */,
+				7EEE601715D317B700039462 /* UIKit.framework */,
+				7EEE601915D317B700039462 /* Foundation.framework */,
+				7EEE601B15D317B700039462 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EEE601D15D317B700039462 /* EPubReader */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6AD315D436C700EE70B5 /* Resources */,
+				7EEE608715D31A9200039462 /* Classes */,
+				7EEE604B15D318B700039462 /* Libs */,
+				7E8B6B9615D4416D00EE70B5 /* AppDelegate.h */,
+				7EEE602715D317B700039462 /* AppDelegate.m */,
+				7EEE601E15D317B700039462 /* Supporting Files */,
+			);
+			path = EPubReader;
+			sourceTree = "<group>";
+		};
+		7EEE601E15D317B700039462 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE601F15D317B700039462 /* EPubReader-Info.plist */,
+				7EEE602015D317B700039462 /* InfoPlist.strings */,
+				7EEE602315D317B700039462 /* main.m */,
+				7EEE602515D317B700039462 /* EPubReader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EEE604B15D318B700039462 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BD815D4460600EE70B5 /* ZipArchive */,
+				7E8B6BD715D445F700EE70B5 /* TouchXML */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		7EEE608715D31A9200039462 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE608815D31A9900039462 /* Model */,
+				7EEE608915D31AA200039462 /* Services */,
+				7EEE608A15D31AA800039462 /* Controllers */,
+				7EEE608B15D31AAD00039462 /* Views */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		7EEE608815D31A9900039462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6ACC15D4318B00EE70B5 /* Chapter.h */,
+				7E8B6ACD15D4318B00EE70B5 /* Chapter.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7EEE608915D31AA200039462 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE609015D31B0400039462 /* Protocols */,
+				7E8B6BD015D442F300EE70B5 /* EPubService.h */,
+				7E8B6BD115D442F300EE70B5 /* EPubService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		7EEE608A15D31AA800039462 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE608C15D31AB200039462 /* Business */,
+				7EEE608D15D31AC600039462 /* View */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7EEE608B15D31AAD00039462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE60A415D31DAC00039462 /* EPubViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7EEE608C15D31AB200039462 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6ACF15D4343300EE70B5 /* Protocols */,
+				7EEE609E15D31D0800039462 /* MasterController.h */,
+				7EEE609F15D31D0800039462 /* MasterController.m */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		7EEE608D15D31AC600039462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE609815D31B3100039462 /* Protocols */,
+				7EEE60A215D31DAC00039462 /* EPubViewController.h */,
+				7EEE60A315D31DAC00039462 /* EPubViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7EEE609015D31B0400039462 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E8B6BCF15D442E700EE70B5 /* IEPubService.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		7EEE609815D31B3100039462 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE609915D31B4500039462 /* IWebViewDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EEE601215D317B700039462 /* EPubReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "EPubReader" */;
+			buildPhases = (
+				7EEE600F15D317B700039462 /* Sources */,
+				7EEE601015D317B700039462 /* Frameworks */,
+				7EEE601115D317B700039462 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EPubReader;
+			productName = EPubReader;
+			productReference = 7EEE601315D317B700039462 /* EPubReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EEE600A15D317B700039462 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "David Díaz";
+			};
+			buildConfigurationList = 7EEE600D15D317B700039462 /* Build configuration list for PBXProject "EPubReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7EEE600815D317B700039462;
+			productRefGroup = 7EEE601415D317B700039462 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EEE601215D317B700039462 /* EPubReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EEE601115D317B700039462 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EEE602215D317B700039462 /* InfoPlist.strings in Resources */,
+				7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */,
+				7E8B6AD215D436C100EE70B5 /* vhugo.epub in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EEE600F15D317B700039462 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EEE602415D317B700039462 /* main.m in Sources */,
+				7EEE602815D317B700039462 /* AppDelegate.m in Sources */,
+				7EEE60A015D31D0800039462 /* MasterController.m in Sources */,
+				7EEE60A515D31DAC00039462 /* EPubViewController.m in Sources */,
+				7E8B6ACE15D4318B00EE70B5 /* Chapter.m in Sources */,
+				7E8B6BD215D442F300EE70B5 /* EPubService.m in Sources */,
+				7E8B6BE515D4464700EE70B5 /* ioapi.c in Sources */,
+				7E8B6BE615D4464700EE70B5 /* mztools.c in Sources */,
+				7E8B6BE715D4464700EE70B5 /* unzip.c in Sources */,
+				7E8B6BE815D4464700EE70B5 /* zip.c in Sources */,
+				7E8B6C0815D4465000EE70B5 /* CXMLDocument_CreationExtensions.m in Sources */,
+				7E8B6C0915D4465000EE70B5 /* CXMLNode_CreationExtensions.m in Sources */,
+				7E8B6C0A15D4465000EE70B5 /* CXHTMLDocument.m in Sources */,
+				7E8B6C0B15D4465000EE70B5 /* CXMLDocument.m in Sources */,
+				7E8B6C0C15D4465000EE70B5 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				7E8B6C0D15D4465000EE70B5 /* CXMLElement.m in Sources */,
+				7E8B6C0E15D4465000EE70B5 /* CXMLElement_CreationExtensions.m in Sources */,
+				7E8B6C0F15D4465000EE70B5 /* CXMLElement_ElementTreeExtensions.m in Sources */,
+				7E8B6C1015D4465000EE70B5 /* CXMLNamespaceNode.m in Sources */,
+				7E8B6C1115D4465000EE70B5 /* CXMLNode.m in Sources */,
+				7E8B6C1215D4465000EE70B5 /* CXMLNode_PrivateExtensions.m in Sources */,
+				7E8B6C1315D4465000EE70B5 /* CXMLNode_XPathExtensions.m in Sources */,
+				7E8B6C1415D4465000EE70B5 /* CTidy.m in Sources */,
+				7E8B6C1615D4478600EE70B5 /* ZipArchive.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7EEE602015D317B700039462 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EEE602115D317B700039462 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EEE603215D317B700039462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7EEE603315D317B700039462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EEE603515D317B700039462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7EEE603615D317B700039462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EEE600D15D317B700039462 /* Build configuration list for PBXProject "EPubReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EEE603215D317B700039462 /* Debug */,
+				7EEE603315D317B700039462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "EPubReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EEE603515D317B700039462 /* Debug */,
+				7EEE603615D317B700039462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EEE600A15D317B700039462 /* Project object */;
+}
