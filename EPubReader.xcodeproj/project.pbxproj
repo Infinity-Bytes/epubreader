@@ -30,6 +30,10 @@
 		7E8B6C1315D4465000EE70B5 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C0315D4465000EE70B5 /* CXMLNode_XPathExtensions.m */; };
 		7E8B6C1415D4465000EE70B5 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C0615D4465000EE70B5 /* CTidy.m */; };
 		7E8B6C1615D4478600EE70B5 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B6C1515D4478600EE70B5 /* ZipArchive.mm */; };
+		7E90C5BE15D45B1600E99ED8 /* ChapterWebDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */; };
+		7E90C5D215D4640B00E99ED8 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E90C5CB15D4640B00E99ED8 /* GTMNSString+HTML.m */; };
+		7E90C5D315D4640B00E99ED8 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E90C5CD15D4640B00E99ED8 /* NSString+HTML.m */; };
+		7E90C5D515D4640B00E99ED8 /* UIWebView+SearchWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */; };
 		7EEE601815D317B700039462 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601715D317B700039462 /* UIKit.framework */; };
 		7EEE601A15D317B700039462 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601915D317B700039462 /* Foundation.framework */; };
 		7EEE601C15D317B700039462 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE601B15D317B700039462 /* CoreGraphics.framework */; };
@@ -91,6 +95,16 @@
 		7E8B6C0615D4465000EE70B5 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		7E8B6C0715D4465000EE70B5 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		7E8B6C1515D4478600EE70B5 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		7E90C5BC15D45B1600E99ED8 /* ChapterWebDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterWebDelegate.h; sourceTree = "<group>"; };
+		7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterWebDelegate.m; sourceTree = "<group>"; };
+		7E90C5C815D461AC00E99ED8 /* IChapterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IChapterDelegate.h; sourceTree = "<group>"; };
+		7E90C5C915D4640B00E99ED8 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		7E90C5CA15D4640B00E99ED8 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		7E90C5CB15D4640B00E99ED8 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		7E90C5CC15D4640B00E99ED8 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		7E90C5CD15D4640B00E99ED8 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		7E90C5D015D4640B00E99ED8 /* UIWebView+SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+SearchWebView.h"; sourceTree = "<group>"; };
+		7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+SearchWebView.m"; sourceTree = "<group>"; };
 		7EEE601315D317B700039462 /* EPubReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPubReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEE601715D317B700039462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7EEE601915D317B700039462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,6 +160,13 @@
 		7E8B6BD715D445F700EE70B5 /* TouchXML */ = {
 			isa = PBXGroup;
 			children = (
+				7E90C5C915D4640B00E99ED8 /* GTMDefines.h */,
+				7E90C5CA15D4640B00E99ED8 /* GTMNSString+HTML.h */,
+				7E90C5CB15D4640B00E99ED8 /* GTMNSString+HTML.m */,
+				7E90C5CC15D4640B00E99ED8 /* NSString+HTML.h */,
+				7E90C5CD15D4640B00E99ED8 /* NSString+HTML.m */,
+				7E90C5D015D4640B00E99ED8 /* UIWebView+SearchWebView.h */,
+				7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */,
 				7E8B6BEA15D4465000EE70B5 /* Source */,
 			);
 			name = TouchXML;
@@ -354,6 +375,8 @@
 				7EEE609815D31B3100039462 /* Protocols */,
 				7EEE60A215D31DAC00039462 /* EPubViewController.h */,
 				7EEE60A315D31DAC00039462 /* EPubViewController.m */,
+				7E90C5BC15D45B1600E99ED8 /* ChapterWebDelegate.h */,
+				7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -370,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				7EEE609915D31B4500039462 /* IWebViewDelegate.h */,
+				7E90C5C815D461AC00E99ED8 /* IChapterDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -462,6 +486,10 @@
 				7E8B6C1315D4465000EE70B5 /* CXMLNode_XPathExtensions.m in Sources */,
 				7E8B6C1415D4465000EE70B5 /* CTidy.m in Sources */,
 				7E8B6C1615D4478600EE70B5 /* ZipArchive.mm in Sources */,
+				7E90C5BE15D45B1600E99ED8 /* ChapterWebDelegate.m in Sources */,
+				7E90C5D215D4640B00E99ED8 /* GTMNSString+HTML.m in Sources */,
+				7E90C5D315D4640B00E99ED8 /* NSString+HTML.m in Sources */,
+				7E90C5D515D4640B00E99ED8 /* UIWebView+SearchWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
