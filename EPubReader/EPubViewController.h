@@ -34,6 +34,8 @@
 
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
+@property (retain, nonatomic) IBOutlet UISlider *pageSlider;
+@property (retain, nonatomic) IBOutlet UILabel *pageLabel;
 
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult;

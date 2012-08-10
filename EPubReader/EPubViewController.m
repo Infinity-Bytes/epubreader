@@ -19,17 +19,17 @@
 
 @synthesize epubDelegate;
 @synthesize webView;
+@synthesize pageSlider;
+@synthesize pageLabel;
 
 - (void)dealloc
 {
     self.epubDelegate = nil;
-    
-   
-   [currentFontText release];
-    
-  
+    [currentFontText release];
     
     [webView release];
+    [pageSlider release];
+    [pageLabel release];
     [super dealloc];
 }
 
@@ -37,7 +37,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -94,49 +94,65 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
+    [self setPageSlider:nil];
+    [self setPageLabel:nil];
     [super viewDidUnload];
 
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    [self updatePagination];
 	return YES;
 }
 
+
+
 -(void)createChapters: (NSArray *) chapters{
-    [self loadConfHTML];
-    epubLoaded = YES;
+    
     NSMutableArray* tmpArray = [[NSMutableArray alloc] init];
 
     for(Chapter * chapter in chapters){
+        
         ChapterWebDelegate * tmpChapter = [[ChapterWebDelegate alloc] initWithPath: [chapter path] title:[chapter title] chapterIndex:[chapter index]];
         
         [tmpChapter setChapterDelegate: self];
         [tmpArray addObject: tmpChapter];
         [tmpChapter release];
+        
     }
-    
+     
     [self setSpineArray: tmpArray];
+    epubLoaded = YES;
     
+    [self loadConfHTML];
     [self updatePagination];
+}
+
+- (int) getGlobalPageCount{
+	int pageCount = 0;
+	for(int i=0; i<currentSpineIndex; i++){
+		pageCount+= [[[self spineArray] objectAtIndex:i] pageCount];
+	}
+	pageCount+=currentPageInSpineIndex+1;
+	return pageCount;
 }
 
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
+    
     totalPagesCount+=chapter.pageCount;
     
-	if(chapter.chapterIndex + 1 < [ [self spineArray] count]){
-		
-		
+	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
+    {
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-        
-	} else {
-		
+        [pageLabel setText:[NSString stringWithFormat:@"? of %d", totalPagesCount]];
+	}
+    else {
         
 		paginating = NO;
-		NSLog(@"Pagination Ended!");
-	}
-
+        [self updateSlider];
+    }
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -150,7 +166,10 @@
 	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	currentPageInSpineIndex = pageIndex;
 	currentSpineIndex = spineIndex;
+    if(!paginating)
+        [self updateSlider];
 }
+
 
 
 - (void) updatePagination{
@@ -162,7 +181,6 @@
         [self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex  highlightSearchResult:nil];
         
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-
     }
 }
 
@@ -217,7 +235,6 @@
 		[self gotoPageInCurrentSpine:currentPageInSpineIndex ];
 	}
 
-
 }
 
 - (void) gotoPageInCurrentSpine:(int)pageIndex{
@@ -233,12 +250,12 @@
 	
 	[webView stringByEvaluatingJavaScriptFromString:goToOffsetFunc];
 	[webView stringByEvaluatingJavaScriptFromString:goTo];
-	
+    
+    if(!paginating)
+        [self updateSlider];
 	
 	webView.hidden = NO;
 	[self saveConfHTML];
-	
-	NSLog(@"aqui uno");
 }
 
 
@@ -258,86 +275,160 @@
 	
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	int fSize = [defs integerForKey:@"fontSize"];
-	
-	if(fSize) {
-		currentTextSize = fSize;
-	}
-	
 	NSString *fName = [defs stringForKey:@"fontName"];
-	
-	if (fName) {
-		currentFontText = fName;
-	}
-	
+		
+	int fSize = [defs integerForKey:@"fontSize"];
+    
 	int cSpineIndex = [defs integerForKey:@"currentSpineIndex"];
 	
-	if(cSpineIndex) {
-		currentSpineIndex = cSpineIndex;
-	}
-	
 	int cPageInSpineIndex = [defs integerForKey:@"currentPageInSpineIndex"];
+    
+    if(fSize)
+		currentTextSize = fSize;
+    
+    if (fName)
+		currentFontText = fName;
+
+    if(cSpineIndex)
+		currentSpineIndex = cSpineIndex;
 	
-	if(cPageInSpineIndex) {
+	if(cPageInSpineIndex) 
 		currentPageInSpineIndex = cPageInSpineIndex;
-	}
+	
 }
 
 - (void) gotoNextSpine {
 	if(!paginating){
 		if(currentSpineIndex+1<[ [self spineArray] count]){
 			[self loadSpine:++currentSpineIndex atPageIndex:0 highlightSearchResult:nil];
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"CurlAnim"];
+            [self validateTransitionAnimation:@"pageCurl"];
 		}
 	}
 }
 
 - (void) gotoNextPage {
 	if(!paginating){
-		if(currentPageInSpineIndex+1<pagesInCurrentSpineCount){
+		if(currentPageInSpineIndex+1<pagesInCurrentSpineCount)
+        {
 			[self gotoPageInCurrentSpine:++currentPageInSpineIndex];
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"CurlAnim"];
-		} else {
-			[self gotoNextSpine];
+			[self validateTransitionAnimation:@"pageCurl"];
 		}
+        else
+			[self gotoNextSpine];
+		
 	}
 }
 
 - (void) gotoPrevPage {
-	if (!paginating) {
-		if(currentPageInSpineIndex-1>=0){ NSLog(@"uno");
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageUnCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"UnCurlAnim"];
+	if (!paginating)
+    {
+		if(currentPageInSpineIndex-1>=0)
+        {
+			[self validateTransitionAnimation:@"pageUnCurl"];
 			[self gotoPageInCurrentSpine:--currentPageInSpineIndex];
-			
-		} else {
-			if(currentSpineIndex!=0){ NSLog(@"dos");
-				CATransition *transition = [CATransition animation];
-				[transition setDelegate:self];
-				[transition setDuration:0.5f];
-				[transition setType:@"pageUnCurl"];
-				[transition setSubtype:@"fromRight"];
-				[self.view.layer addAnimation:transition forKey:@"UnCurlAnim"];
-				int targetPage = [[ [self spineArray] objectAtIndex:(currentSpineIndex-1)] pageCount];
-				[self loadSpine:--currentSpineIndex atPageIndex:targetPage-1 highlightSearchResult:nil];
-			}
 		}
-	}
+        else if(currentSpineIndex!=0)
+        {
+            int targetPage = [[ [self spineArray] objectAtIndex:(currentSpineIndex-1)] pageCount];
+            [self validateTransitionAnimation:@"pageUnCurl"];
+            [self loadSpine:--currentSpineIndex atPageIndex:targetPage-1 highlightSearchResult:nil];
+        }
+    }
 }
 
+-(void) validateTransitionAnimation: (NSString*)type{
+    
+    
+   
+    
+    
+    switch (self.interfaceOrientation) {
+        case 4:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromTop];
+            break;
+        case 3:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromBottom];
+            break;
+        case 1:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromRight];
+            break;
+        case 2:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromLeft];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+-(void) makeTransitionAnimation: (NSString*)type withOrientation: (NSString*) subtype {
+
+    CATransition *transition = [CATransition animation];
+    [transition setDelegate:self];
+    [transition setDuration:0.5f];
+    [transition setType:type];
+    [transition setSubtype:subtype];
+    [[[self view]layer] addAnimation:transition forKey:@"UnCurlAnim"];
+
+}
+
+-(void) updateSlider{
+        [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
+		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+}
+
+- (IBAction) slidingStarted:(id)sender{
+    int targetPage = ((pageSlider.value/(float)100)*(float)totalPagesCount);
+    
+    if (targetPage==0)
+        targetPage++;
+    
+	[pageLabel setText:[NSString stringWithFormat:@"%d/%d", targetPage, totalPagesCount]];
+
+}
+
+- (IBAction) slidingEnded:(id)sender{
+    int targetPage = (int)((pageSlider.value/(float)100)*(float)totalPagesCount);
+    int pageSum = 0;
+	int chapterIndex = 0;
+	int pageIndex = 0;
+    
+    if (targetPage==0)
+        targetPage++;
+    
+    for(chapterIndex=0; chapterIndex<[[self spineArray] count]; chapterIndex++){
+        
+        pageSum+=[[[self spineArray] objectAtIndex:chapterIndex] pageCount];
+        if(pageSum>=targetPage){
+            pageIndex = [[[self spineArray] objectAtIndex:chapterIndex] pageCount] - 1 - pageSum + targetPage;
+			break;
+        }
+    }
+    
+    [self loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
+}
+
+- (void) loadPage:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
+	
+	int dir = 0;
+	
+    if(spineIndex < currentSpineIndex)
+        dir = -1;
+    else if(spineIndex > currentSpineIndex)
+        dir = 1;
+    else if (pageIndex < currentPageInSpineIndex)
+        dir = -1;
+    else if (pageIndex > currentPageInSpineIndex)
+        dir = 1;    
+	
+	if (dir == 1)
+        [self validateTransitionAnimation:@"pageCurl"];
+	else if (dir == -1)
+        [self validateTransitionAnimation:@"pageUnCurl"];
+	
+	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:theResult];
+	
+}
 
 @end
