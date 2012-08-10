@@ -19,6 +19,8 @@
 
 @synthesize epubDelegate;
 @synthesize webView;
+@synthesize pageSlider;
+@synthesize pageLabel;
 
 - (void)dealloc
 {
@@ -26,6 +28,8 @@
     [currentFontText release];
     
     [webView release];
+    [pageSlider release];
+    [pageLabel release];
     [super dealloc];
 }
 
@@ -90,6 +94,8 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
+    [self setPageSlider:nil];
+    [self setPageLabel:nil];
     [super viewDidUnload];
 
 }
@@ -123,16 +129,30 @@
     [self updatePagination];
 }
 
+- (int) getGlobalPageCount{
+	int pageCount = 0;
+	for(int i=0; i<currentSpineIndex; i++){
+		pageCount+= [[[self spineArray] objectAtIndex:i] pageCount];
+	}
+	pageCount+=currentPageInSpineIndex+1;
+	return pageCount;
+}
+
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
     
     totalPagesCount+=chapter.pageCount;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
+    {
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-	else 
+        [pageLabel setText:[NSString stringWithFormat:@"? of %d", totalPagesCount]];
+	}
+    else {
+        
 		paginating = NO;
-
+        [self updateSlider];
+    }
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -146,7 +166,10 @@
 	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	currentPageInSpineIndex = pageIndex;
 	currentSpineIndex = spineIndex;
+    if(!paginating)
+        [self updateSlider];
 }
+
 
 
 - (void) updatePagination{
@@ -158,7 +181,6 @@
         [self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex  highlightSearchResult:nil];
         
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-
     }
 }
 
@@ -228,7 +250,9 @@
 	
 	[webView stringByEvaluatingJavaScriptFromString:goToOffsetFunc];
 	[webView stringByEvaluatingJavaScriptFromString:goTo];
-	
+    
+    if(!paginating)
+        [self updateSlider];
 	
 	webView.hidden = NO;
 	[self saveConfHTML];
@@ -314,15 +338,28 @@
 
 -(void) validateTransitionAnimation: (NSString*)type{
     
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
-    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]))
-        [self makeTransitionAnimation:type withOrientation: @"fromDown"];
+   
     
-    if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
-        [self makeTransitionAnimation:type withOrientation: @"fromRight"];
     
-    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    switch (self.interfaceOrientation) {
+        case 4:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromTop];
+            break;
+        case 3:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromBottom];
+            break;
+        case 1:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromRight];
+            break;
+        case 2:
+            [self makeTransitionAnimation:type withOrientation: kCATransitionFromLeft];
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 -(void) makeTransitionAnimation: (NSString*)type withOrientation: (NSString*) subtype {
@@ -334,6 +371,64 @@
     [transition setSubtype:subtype];
     [[[self view]layer] addAnimation:transition forKey:@"UnCurlAnim"];
 
+}
+
+-(void) updateSlider{
+        [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
+		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+}
+
+- (IBAction) slidingStarted:(id)sender{
+    int targetPage = ((pageSlider.value/(float)100)*(float)totalPagesCount);
+    
+    if (targetPage==0)
+        targetPage++;
+    
+	[pageLabel setText:[NSString stringWithFormat:@"%d/%d", targetPage, totalPagesCount]];
+
+}
+
+- (IBAction) slidingEnded:(id)sender{
+    int targetPage = (int)((pageSlider.value/(float)100)*(float)totalPagesCount);
+    int pageSum = 0;
+	int chapterIndex = 0;
+	int pageIndex = 0;
+    
+    if (targetPage==0)
+        targetPage++;
+    
+    for(chapterIndex=0; chapterIndex<[[self spineArray] count]; chapterIndex++){
+        
+        pageSum+=[[[self spineArray] objectAtIndex:chapterIndex] pageCount];
+        if(pageSum>=targetPage){
+            pageIndex = [[[self spineArray] objectAtIndex:chapterIndex] pageCount] - 1 - pageSum + targetPage;
+			break;
+        }
+    }
+    
+    [self loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
+}
+
+- (void) loadPage:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
+	
+	int dir = 0;
+	
+    if(spineIndex < currentSpineIndex)
+        dir = -1;
+    else if(spineIndex > currentSpineIndex)
+        dir = 1;
+    else if (pageIndex < currentPageInSpineIndex)
+        dir = -1;
+    else if (pageIndex > currentPageInSpineIndex)
+        dir = 1;    
+	
+	if (dir == 1)
+        [self validateTransitionAnimation:@"pageCurl"];
+	else if (dir == -1)
+        [self validateTransitionAnimation:@"pageUnCurl"];
+	
+	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:theResult];
+	
 }
 
 @end
