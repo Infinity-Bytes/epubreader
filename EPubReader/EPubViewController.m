@@ -33,7 +33,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -96,8 +96,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    [self updatePagination];
 	return YES;
 }
+
+
 
 -(void)createChapters: (NSArray *) chapters{
     
@@ -122,14 +125,13 @@
 
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
+    
     totalPagesCount+=chapter.pageCount;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-	else {
+	else 
 		paginating = NO;
-		NSLog(@"Pagination Ended!");
-	}
 
 }
 
@@ -211,7 +213,6 @@
 		[self gotoPageInCurrentSpine:currentPageInSpineIndex ];
 	}
 
-
 }
 
 - (void) gotoPageInCurrentSpine:(int)pageIndex{
@@ -276,58 +277,63 @@
 	if(!paginating){
 		if(currentSpineIndex+1<[ [self spineArray] count]){
 			[self loadSpine:++currentSpineIndex atPageIndex:0 highlightSearchResult:nil];
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"CurlAnim"];
+            [self validateTransitionAnimation:@"pageCurl"];
 		}
 	}
 }
 
 - (void) gotoNextPage {
 	if(!paginating){
-		if(currentPageInSpineIndex+1<pagesInCurrentSpineCount){
+		if(currentPageInSpineIndex+1<pagesInCurrentSpineCount)
+        {
 			[self gotoPageInCurrentSpine:++currentPageInSpineIndex];
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"CurlAnim"];
-		} else {
-			[self gotoNextSpine];
+			[self validateTransitionAnimation:@"pageCurl"];
 		}
+        else
+			[self gotoNextSpine];
+		
 	}
 }
 
 - (void) gotoPrevPage {
-	if (!paginating) {
-		if(currentPageInSpineIndex-1>=0){
-            
-			CATransition *transition = [CATransition animation];
-			[transition setDelegate:self];
-			[transition setDuration:0.5f];
-			[transition setType:@"pageUnCurl"];
-			[transition setSubtype:@"fromRight"];
-			[self.view.layer addAnimation:transition forKey:@"UnCurlAnim"];
+	if (!paginating)
+    {
+		if(currentPageInSpineIndex-1>=0)
+        {
+			[self validateTransitionAnimation:@"pageUnCurl"];
 			[self gotoPageInCurrentSpine:--currentPageInSpineIndex];
-			
-		} else if(currentSpineIndex!=0){
-            
-				CATransition *transition = [CATransition animation];
-				[transition setDelegate:self];
-				[transition setDuration:0.5f];
-				[transition setType:@"pageUnCurl"];
-				[transition setSubtype:@"fromRight"];
-				[self.view.layer addAnimation:transition forKey:@"UnCurlAnim"];
-				int targetPage = [[ [self spineArray] objectAtIndex:(currentSpineIndex-1)] pageCount];
-				[self loadSpine:--currentSpineIndex atPageIndex:targetPage-1 highlightSearchResult:nil];
-            
+		}
+        else if(currentSpineIndex!=0)
+        {
+            int targetPage = [[ [self spineArray] objectAtIndex:(currentSpineIndex-1)] pageCount];
+            [self validateTransitionAnimation:@"pageUnCurl"];
+            [self loadSpine:--currentSpineIndex atPageIndex:targetPage-1 highlightSearchResult:nil];
         }
     }
 }
 
+-(void) validateTransitionAnimation: (NSString*)type{
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    
+    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]))
+        [self makeTransitionAnimation:type withOrientation: @"fromDown"];
+    
+    if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
+        [self makeTransitionAnimation:type withOrientation: @"fromRight"];
+    
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+}
+
+-(void) makeTransitionAnimation: (NSString*)type withOrientation: (NSString*) subtype {
+
+    CATransition *transition = [CATransition animation];
+    [transition setDelegate:self];
+    [transition setDuration:0.5f];
+    [transition setType:type];
+    [transition setSubtype:subtype];
+    [[[self view]layer] addAnimation:transition forKey:@"UnCurlAnim"];
+
+}
 
 @end
