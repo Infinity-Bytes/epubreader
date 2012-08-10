@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) NSString* spinePath;
 @property (nonatomic, readonly) NSString* title;
 @property (nonatomic, readonly) NSString* text;
+@property (nonatomic, readonly) NSString* fontFamily;
 
 @property (nonatomic, readonly) int pageCount;
 @property (nonatomic, readonly) int chapterIndex;
@@ -24,4 +25,8 @@
 @property(nonatomic,retain) id<IChapterDelegate> chapterDelegate;
 
 - (id) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex;
+
+
+- (void) loadChapterWithWindowSize:(CGRect)theWindowSize fontPercentSize:(int) theFontPercentSize fontFamily:(NSString*)theFontFamily;
+
 @end

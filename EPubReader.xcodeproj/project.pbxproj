@@ -105,6 +105,8 @@
 		7E90C5CD15D4640B00E99ED8 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		7E90C5D015D4640B00E99ED8 /* UIWebView+SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+SearchWebView.h"; sourceTree = "<group>"; };
 		7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+SearchWebView.m"; sourceTree = "<group>"; };
+		7E90C5DE15D4773400E99ED8 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		7E90C5DF15D4773400E99ED8 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 		7EEE601315D317B700039462 /* EPubReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPubReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEE601715D317B700039462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7EEE601915D317B700039462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -326,6 +328,8 @@
 		7EEE608815D31A9900039462 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7E90C5DE15D4773400E99ED8 /* SearchResult.h */,
+				7E90C5DF15D4773400E99ED8 /* SearchResult.m */,
 				7E8B6ACC15D4318B00EE70B5 /* Chapter.h */,
 				7E8B6ACD15D4318B00EE70B5 /* Chapter.m */,
 			);

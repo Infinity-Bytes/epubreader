@@ -10,6 +10,7 @@
 #import "IWebViewDelegate.h"
 #import "IEPubDelegate.h"
 #import "IChapterDelegate.h"
+#import "SearchResult.h"
 
 
 @interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate>{
@@ -29,8 +30,13 @@
 
 @property(retain,nonatomic) id<IEPubDelegate> epubDelegate;
 @property(retain,nonatomic) NSArray* spineArray;
+@property (nonatomic, retain) SearchResult* currentSearchResult;
+
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
+
+
+- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult;
 
 
 @end
