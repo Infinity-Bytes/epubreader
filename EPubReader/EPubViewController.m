@@ -8,6 +8,7 @@
 
 #import "EPubViewController.h"
 #import "ChapterWebDelegate.h"
+#import "ChapterListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Chapter.h"
 
@@ -21,6 +22,8 @@
 @synthesize webView;
 @synthesize pageSlider;
 @synthesize pageLabel;
+@synthesize chapterListButton;
+@synthesize spineArray;
 
 - (void)dealloc
 {
@@ -30,6 +33,8 @@
     [webView release];
     [pageSlider release];
     [pageLabel release];
+    [chapterListButton release];
+    [spineArray release];
     [super dealloc];
 }
 
@@ -37,10 +42,12 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
     }
     return self;
 }
+
+
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
@@ -138,6 +145,22 @@
 	return pageCount;
 }
 
+- (IBAction) showChapterIndex:(id)sender{
+	if(chaptersPopover==nil){
+		
+        ChapterListViewController* chapterListView = [[ChapterListViewController alloc] initWithNibName:@"ChapterListViewController" bundle:[NSBundle mainBundle]];
+        [chapterListView setSpineArrayManagerDelegate:self];
+		chaptersPopover = [[UIPopoverController alloc] initWithContentViewController:chapterListView];
+		[chaptersPopover setPopoverContentSize:CGSizeMake(400, 600)];
+		[chapterListView release];
+	}
+	if ([chaptersPopover isPopoverVisible]) {
+		[chaptersPopover dismissPopoverAnimated:YES];
+	}else{
+		[chaptersPopover presentPopoverFromBarButtonItem:chapterListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+}
+
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
     
@@ -182,6 +205,7 @@
         
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
     }
+    NSLog(@"spineArray count = %d", [[self spineArray] count] );
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -429,6 +453,11 @@
 	
 	[self loadSpine:spineIndex atPageIndex:pageIndex highlightSearchResult:theResult];
 	
+}
+
+-(NSArray*)getCurrentSpineArray
+{
+    return self.spineArray;
 }
 
 @end

@@ -11,9 +11,10 @@
 #import "IEPubDelegate.h"
 #import "IChapterDelegate.h"
 #import "SearchResult.h"
+//#import "ChapterListViewController.h"
+#import "ISpineArrayManagerDelegate.h"
 
-
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;
@@ -25,6 +26,10 @@
     BOOL epubLoaded;
     BOOL paginating;
     BOOL searching;
+    
+    UIPopoverController* chaptersPopover;
+
+   // ChapterListViewController *chapterListView;
 }
 
 
@@ -37,8 +42,9 @@
 @property (retain, nonatomic) IBOutlet UISlider *pageSlider;
 @property (retain, nonatomic) IBOutlet UILabel *pageLabel;
 
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *chapterListButton;
 
-- (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult;
+- (NSArray*)getSpineArray;
 
 
 @end

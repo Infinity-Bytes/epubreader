@@ -31,6 +31,7 @@
     
     [epubViewControlller setEpubDelegate: masterController];
     
+    
     [masterController setEpubService:epubService];
     [masterController setWebViewDelegate:epubViewControlller];
     
