@@ -21,6 +21,7 @@
 @synthesize webView;
 @synthesize pageSlider;
 @synthesize pageLabel;
+int count = 0;
 
 - (void)dealloc
 {
@@ -41,20 +42,6 @@
     }
     return self;
 }
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-	float x = [((UITouch*)[touches anyObject]) locationInView:self.view].x;
-	
-	if(x < 150){
-		//touch to the left
-		[self gotoPrevPage];
-	}else {
-		//touch to the right
-		[self gotoNextPage];
-	}
-}
-
 
 - (void)viewDidLoad
 {
@@ -80,10 +67,12 @@
     
     UISwipeGestureRecognizer* rightSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoNextPage)] autorelease];
 	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [rightSwipeRecognizer setNumberOfTouchesRequired: 1];
 	
 	UISwipeGestureRecognizer* leftSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)] autorelease];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-	
+    [leftSwipeRecognizer setNumberOfTouchesRequired: 1];
+
 	[webView addGestureRecognizer:rightSwipeRecognizer];
 	[webView addGestureRecognizer:leftSwipeRecognizer];
     
@@ -118,8 +107,7 @@
         
         [tmpChapter setChapterDelegate: self];
         [tmpArray addObject: tmpChapter];
-        [tmpChapter release];
-        
+        [tmpChapter release]; 
     }
      
     [self setSpineArray: tmpArray];
@@ -141,18 +129,14 @@
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
     
+    paginating = NO;
     totalPagesCount+=chapter.pageCount;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
-    {
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-        [pageLabel setText:[NSString stringWithFormat:@"? of %d", totalPagesCount]];
-	}
-    else {
-        
-		paginating = NO;
-        [self updateSlider];
-    }
+	
+    
+    [self updateSlider];
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -339,21 +323,18 @@
 -(void) validateTransitionAnimation: (NSString*)type{
     
     
-   
-    
-    
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromTop];
+            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
             break;
         case 3:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromBottom];
+            [self makeTransitionAnimation:type withOrientation: @"fromDown"];
             break;
         case 1:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromRight];
+            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
             break;
         case 2:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromLeft];
+            [self makeTransitionAnimation:type withOrientation: @"fromLeft"];
             break;
             
         default:
@@ -365,17 +346,23 @@
 -(void) makeTransitionAnimation: (NSString*)type withOrientation: (NSString*) subtype {
 
     CATransition *transition = [CATransition animation];
+     
     [transition setDelegate:self];
     [transition setDuration:0.5f];
     [transition setType:type];
-    [transition setSubtype:subtype];
-    [[[self view]layer] addAnimation:transition forKey:@"UnCurlAnim"];
+    [transition setSubtype: subtype];
+    [[[self view]layer] addAnimation:transition forKey:@"pageCurlAnimation"];
+    
+   
 
 }
 
 -(void) updateSlider{
+    
+    if(totalPagesCount > [self getGlobalPageCount]){
         [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
 		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+    }
 }
 
 - (IBAction) slidingStarted:(id)sender{
