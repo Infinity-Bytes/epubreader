@@ -11,7 +11,6 @@
 #import "IEPubDelegate.h"
 #import "IChapterDelegate.h"
 #import "SearchResult.h"
-//#import "ChapterListViewController.h"
 #import "ISpineArrayManagerDelegate.h"
 
 @interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate>{

@@ -25,6 +25,7 @@
 @synthesize chapterListButton;
 @synthesize spineArray;
 
+
 - (void)dealloc
 {
     self.epubDelegate = nil;
@@ -47,19 +48,20 @@
     return self;
 }
 
-
+ 
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-	float x = [((UITouch*)[touches anyObject]) locationInView:self.view].x;
-	
-	if(x < 150){
-		//touch to the left
-		[self gotoPrevPage];
-	}else {
-		//touch to the right
-		[self gotoNextPage];
-	}
+    float x = [((UITouch*)[touches anyObject]) locationInView:self.view].x;
+        
+    if(x < 384){
+        //touch to the left
+        [self gotoPrevPage];
+    }else {
+        //touch to the right
+        [self gotoNextPage];
+
+    }
 }
 
 
@@ -80,7 +82,7 @@
 		}
 	}
     
-    currentTextSize = 100;
+    //currentTextSize = 100;
 	currentFontText = @"Times New Roman";
 	currentSpineIndex = 0;
     currentPageInSpineIndex = 0;
@@ -90,13 +92,65 @@
 	
 	UISwipeGestureRecognizer* leftSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)] autorelease];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    UIPinchGestureRecognizer *pinchRecognizer =
+    [[UIPinchGestureRecognizer alloc]
+     initWithTarget:self
+     action:@selector(pinchDetected:)];
+    
+    [webView addGestureRecognizer:pinchRecognizer];
 	
 	[webView addGestureRecognizer:rightSwipeRecognizer];
 	[webView addGestureRecognizer:leftSwipeRecognizer];
     
+    [pinchRecognizer release];
+    
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
 }
+
+- (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
+    
+
+    CGFloat scale = 
+    [(UIPinchGestureRecognizer *)sender scale];
+    CGFloat velocity =
+    [(UIPinchGestureRecognizer *)sender velocity];
+    
+    NSString *resultString = [[NSString alloc] initWithFormat:
+                              @"Pinch - scale = %f, velocity = %f",
+                              scale, velocity];
+    NSLog(@"%@", resultString);
+    [resultString release];
+    
+    if(velocity < 0){
+        /*
+        if (paginating) {
+            return;
+        }
+        */
+        if(currentTextSize-2>=50){
+			currentTextSize-=2;
+			[self changeFontSize:currentTextSize];
+		}
+        
+        
+    }else{
+        
+        if(currentTextSize+2<=200){
+			currentTextSize+=2;
+			[self changeFontSize:currentTextSize];
+		}
+    }
+}
+
+-(void)changeFontSize:(int)fontSize{
+	currentTextSize = fontSize;
+	[self updatePagination];
+	[self saveConfHTML];
+}
+
+
 
 - (void)viewDidUnload
 {
@@ -109,6 +163,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    NSLog(@"interfaceOrientation = %d", interfaceOrientation);
     [self updatePagination];
 	return YES;
 }
@@ -159,6 +214,8 @@
 	}else{
 		[chaptersPopover presentPopoverFromBarButtonItem:chapterListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	}
+    
+
 }
 
 
@@ -368,16 +425,16 @@
     
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromTop];
+            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
             break;
         case 3:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromBottom];
+            [self makeTransitionAnimation:type withOrientation: @"fromTop"];
             break;
         case 1:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromRight];
+            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
             break;
         case 2:
-            [self makeTransitionAnimation:type withOrientation: kCATransitionFromLeft];
+            [self makeTransitionAnimation:type withOrientation: @"fromLeft"];
             break;
             
         default:
@@ -411,6 +468,9 @@
 	[pageLabel setText:[NSString stringWithFormat:@"%d/%d", targetPage, totalPagesCount]];
 
 }
+
+
+
 
 - (IBAction) slidingEnded:(id)sender{
     int targetPage = (int)((pageSlider.value/(float)100)*(float)totalPagesCount);

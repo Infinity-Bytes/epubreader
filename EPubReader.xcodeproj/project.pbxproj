@@ -126,7 +126,6 @@
 		7EEE60A215D31DAC00039462 /* EPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPubViewController.h; sourceTree = "<group>"; };
 		7EEE60A315D31DAC00039462 /* EPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPubViewController.m; sourceTree = "<group>"; };
 		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
-		CC8BC05215D9BAAA000A330D /* ChapterListDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChapterListDelegate.h; sourceTree = "<group>"; };
 		CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISpineArrayManagerDelegate.h; sourceTree = "<group>"; };
 		CC91A27415D5CBDC00AB269F /* hungerGames.epub */ = {isa = PBXFileReference; lastKnownFileType = file; name = hungerGames.epub; path = ../hungerGames.epub; sourceTree = "<group>"; };
 		CC96830915D5D93400280420 /* ChapterListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterListViewController.xib; sourceTree = "<group>"; };
@@ -416,7 +415,6 @@
 			children = (
 				7EEE609915D31B4500039462 /* IWebViewDelegate.h */,
 				7E90C5C815D461AC00E99ED8 /* IChapterDelegate.h */,
-				CC8BC05215D9BAAA000A330D /* ChapterListDelegate.h */,
 				CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */,
 			);
 			name = Protocols;
