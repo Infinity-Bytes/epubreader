@@ -21,6 +21,7 @@
 @synthesize webView;
 @synthesize pageSlider;
 @synthesize pageLabel;
+int count = 0;
 
 - (void)dealloc
 {
@@ -118,8 +119,7 @@
         
         [tmpChapter setChapterDelegate: self];
         [tmpArray addObject: tmpChapter];
-        [tmpChapter release];
-        
+        [tmpChapter release]; 
     }
      
     [self setSpineArray: tmpArray];
@@ -141,18 +141,14 @@
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
     
+    paginating = NO;
     totalPagesCount+=chapter.pageCount;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
-    {
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-        [pageLabel setText:[NSString stringWithFormat:@"? of %d", totalPagesCount]];
-	}
-    else {
-        
-		paginating = NO;
-        [self updateSlider];
-    }
+	
+    
+    [self updateSlider];
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -338,10 +334,6 @@
 
 -(void) validateTransitionAnimation: (NSString*)type{
     
-    
-   
-    
-    
     switch (self.interfaceOrientation) {
         case 4:
             [self makeTransitionAnimation:type withOrientation: kCATransitionFromTop];
@@ -374,8 +366,11 @@
 }
 
 -(void) updateSlider{
+    
+    if(totalPagesCount > [self getGlobalPageCount]){
         [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
 		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+    }
 }
 
 - (IBAction) slidingStarted:(id)sender{
