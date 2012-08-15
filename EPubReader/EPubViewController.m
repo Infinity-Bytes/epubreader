@@ -78,6 +78,10 @@ int count = 0;
     
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
+    
+    [[self pageLabel ] setAlpha:0];
+    [[self pageSlider ] setAlpha:0];
+    
 }
 
 - (void)viewDidUnload
@@ -134,9 +138,20 @@ int count = 0;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-	
-    
-    [self updateSlider];
+    else{
+       
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.1f];
+        [[self pageSlider] setAlpha:1];
+        [[self pageLabel] setAlpha:1];
+        [UIView commitAnimations];
+        
+        
+        
+                
+        [self updateSlider];
+    }
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -150,8 +165,22 @@ int count = 0;
 	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	currentPageInSpineIndex = pageIndex;
 	currentSpineIndex = spineIndex;
+    
     if(!paginating)
         [self updateSlider];
+    else{
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.1f];
+        [[self pageSlider] setAlpha:0];
+        [[self pageLabel] setAlpha:0];
+        [UIView commitAnimations];
+
+    }
+    
+   
+    
 }
 
 
@@ -237,6 +266,7 @@ int count = 0;
     
     if(!paginating)
         [self updateSlider];
+    
 	
 	webView.hidden = NO;
 	[self saveConfHTML];
@@ -325,7 +355,7 @@ int count = 0;
     
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
+            [self makeTransitionAnimation:type withOrientation: @"fromUp"];
             break;
         case 3:
             [self makeTransitionAnimation:type withOrientation: @"fromDown"];
@@ -351,7 +381,7 @@ int count = 0;
     [transition setDuration:0.5f];
     [transition setType:type];
     [transition setSubtype: subtype];
-    [[[self view]layer] addAnimation:transition forKey:@"pageCurlAnimation"];
+    [[[self webView]layer] addAnimation:transition forKey:@"pageCurlAnimation"];
     
    
 
