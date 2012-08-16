@@ -14,6 +14,8 @@
 #import "SearchResultsViewController.h"
 #import "ISpineArrayManagerDelegate.h"
 
+@class FontView;
+
 @interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate>{
     
     int currentSpineIndex;
@@ -29,7 +31,12 @@
     
     UIPopoverController* chaptersPopover;
     UIPopoverController* searchResultsPopover;
+    UIPopoverController *fontPopover;
  
+    FontView *fontView;
+    
+    UIBarButtonItem* fontListButton;
+    
     SearchResult* currentSearchResult;
     
      SearchResultsViewController* searchResViewController;
@@ -48,7 +55,8 @@
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *chapterListButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *fontListButton;
 
-
+-(void)changeFont:(NSString*)fontName;
 
 @end

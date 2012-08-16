@@ -17,5 +17,6 @@
 -(int)getCurrentTextSize;
 -(void) setSearching:(BOOL)value;
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult;
-
+-(void)changeFont:(NSString*)fontName;
+-(BOOL)getPaginating;
 @end

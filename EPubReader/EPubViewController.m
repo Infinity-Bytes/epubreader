@@ -8,17 +8,10 @@
 
 #import "EPubViewController.h"
 #import "ChapterWebDelegate.h"
-#import "ChapterListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Chapter.h"
-#import "SearchResultsViewController.h"
-#import "SearchResult.h"
-#import "UIWebView+SearchWebView.h"
-
-
-@interface EPubViewController ()
-
-@end
+#import "ChapterListViewController.h"
+#import "FontView.h"
 
 @implementation EPubViewController
 
@@ -27,8 +20,10 @@
 @synthesize pageSlider;
 @synthesize pageLabel;
 @synthesize chapterListButton;
+@synthesize fontListButton;
 @synthesize spineArray;
 @synthesize toolbar;
+int count = 0;
 
 
 
@@ -41,6 +36,7 @@
     [pageSlider release];
     [pageLabel release];
     [chapterListButton release];
+    [fontListButton release];
     [spineArray release];
     [toolbar release];
 
@@ -64,7 +60,7 @@
     
     webView.opaque = NO;
     
-
+   // [self setupSideMenuBarButtonItem];
     
 	UIScrollView* sv = nil;
 	for (UIView* v in  webView.subviews) {
@@ -86,6 +82,8 @@
 	
 	UISwipeGestureRecognizer* leftSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)] autorelease];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [leftSwipeRecognizer setNumberOfTouchesRequired: 1];
+
     
     UIPinchGestureRecognizer *pinchRecognizer =
     [[UIPinchGestureRecognizer alloc]
@@ -102,11 +100,9 @@
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
     
-
-    searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
-	//searchResViewController.delegate = self;
+    [[self pageLabel ] setAlpha:0];
+    [[self pageSlider ] setAlpha:0];
     
-
 }
 
 - (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
@@ -155,12 +151,44 @@
     
 }
 
+- (IBAction) fontClicked:(id)sender{
+    
+      
+	if (fontPopover == nil) {
+		
+		if (fontView == nil) {
+			fontView = [[FontView alloc] initWithNibName:@"FontView" bundle:nil];
+            [fontView setEpubViewController:self];
+		}
+		
+		fontPopover = [[UIPopoverController alloc] initWithContentViewController:fontView];
+		[fontPopover setPopoverContentSize:CGSizeMake(200, 200)];
+	}
+	
+	if (![fontPopover isPopoverVisible]) {
+        
+		[fontView setFontName:currentFontText];
+		[fontView setFontSize:currentTextSize];
+		[fontView resetButtons];
+		
+		[fontPopover presentPopoverFromBarButtonItem:fontListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+}
 
 
 -(void)changeFontSize:(int)fontSize{
 	currentTextSize = fontSize;
 	[self updatePagination];
 	[self saveConfHTML];
+}
+
+-(void)changeFont:(NSString*)fontName{
+	
+	currentFontText = fontName;
+	[self updatePagination];
+	[self saveConfHTML];
+    
+	NSLog(@"la actual fuente %@",currentFontText);
 }
 
 
@@ -256,9 +284,20 @@
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-	
-    NSLog(@"updateSlider");        
-  // [self updateSlider];
+    else{
+       
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.1f];
+        [[self pageSlider] setAlpha:1];
+        [[self pageLabel] setAlpha:1];
+        [UIView commitAnimations];
+        
+        
+        
+                
+        [self updateSlider];
+    }
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -275,6 +314,18 @@
     
     if(!paginating)
         [self updateSlider];
+    else{
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.1f];
+        [[self pageSlider] setAlpha:0];
+        [[self pageLabel] setAlpha:0];
+        [UIView commitAnimations];
+
+    }
+    
+   
     
 }
 
@@ -363,6 +414,7 @@
     
     if(!paginating)
         [self updateSlider];
+    
 	
 	webView.hidden = NO;
 	[self saveConfHTML];
@@ -451,7 +503,7 @@
     
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: @"fromRight"];
+            [self makeTransitionAnimation:type withOrientation: @"fromUp"];
             break;
         case 3:
             [self makeTransitionAnimation:type withOrientation: @"fromDown"];
@@ -477,7 +529,7 @@
     [transition setDuration:0.5f];
     [transition setType:type];
     [transition setSubtype: subtype];
-    [webView.layer addAnimation:transition forKey:@"pageCurlAnimation"];
+    [[[self webView]layer] addAnimation:transition forKey:@"pageCurlAnimation"];
     
    
 
@@ -557,4 +609,13 @@
     searching = value;
 }
 
+-(EPubViewController*)getSelf{
+    
+    return self;
+}
+
+-(BOOL)getPaginating{
+    
+    return paginating;
+}
 @end

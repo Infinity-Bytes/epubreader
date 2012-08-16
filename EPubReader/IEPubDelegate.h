@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class EPubViewController;
+
 @protocol IEPubDelegate <NSObject>
 
 -(void) obtainEPub: (NSString*)path;
+-(EPubViewController*)getSelf;
 @end

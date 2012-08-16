@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "EPubViewController.h"
 #import "EPubService.h"
-
+#import "SideMenuViewController.h"
+#import "MFSideMenuManager.h"
 
 @implementation AppDelegate
 
@@ -39,6 +40,15 @@
     [[self window] addSubview:[epubViewControlller view]];
     
     [[self window] makeKeyAndVisible];
+    
+    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:epubViewControlller];
+//    
+//    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] init];
+//    
+//    self.window.rootViewController = navigationController;
+//    [self.window makeKeyAndVisible];
+//    [MFSideMenuManager configureWithNavigationController:navigationController sideMenuController:sideMenuViewController];
     
     return YES;
 }

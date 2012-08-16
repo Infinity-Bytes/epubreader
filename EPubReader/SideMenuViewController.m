@@ -10,8 +10,11 @@
 
 @implementation SideMenuViewController
 
+@synthesize epubDelegate;
+
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
 }
 
@@ -49,10 +52,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EPubViewController *epubController = [[[EPubViewController alloc] initWithNibName:@"EPubViewController.h" bundle:nil] autorelease];
-    epubController.title = [NSString stringWithFormat:@"Demo Controller #%d-%d", indexPath.section, indexPath.row];
-    
-    NSArray *controllers = [NSArray arrayWithObject:epubController];
+       
+    NSArray *controllers = [NSArray arrayWithObject:[epubDelegate getSelf]];
     [MFSideMenuManager sharedManager].navigationController.viewControllers = controllers;
     [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
 }

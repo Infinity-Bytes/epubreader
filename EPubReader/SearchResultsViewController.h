@@ -10,6 +10,7 @@
 #import "ISpineArrayManagerDelegate.h"
 #import "IChapterDelegate.h"
 
+
 @interface SearchResultsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate> {
     UITableView* resultsTableView;
     NSMutableArray* results;

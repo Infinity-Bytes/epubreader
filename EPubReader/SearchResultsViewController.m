@@ -10,7 +10,7 @@
 #import "SearchResult.h"
 #import "UIWebView+SearchWebView.h"
 #import "Chapter.h"
-
+#import "ChapterListViewController.h"
 
 @implementation SearchResultsViewController
 
