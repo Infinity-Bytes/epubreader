@@ -11,9 +11,10 @@
 #import "IEPubDelegate.h"
 #import "IChapterDelegate.h"
 #import "SearchResult.h"
+#import "SearchResultsViewController.h"
 #import "ISpineArrayManagerDelegate.h"
 
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;
@@ -27,23 +28,27 @@
     BOOL searching;
     
     UIPopoverController* chaptersPopover;
-
-   // ChapterListViewController *chapterListView;
-}
+    UIPopoverController* searchResultsPopover;
+ 
+    SearchResult* currentSearchResult;
+    
+     SearchResultsViewController* searchResViewController;
+  
+    }
 
 
 @property(retain,nonatomic) id<IEPubDelegate> epubDelegate;
 @property(retain,nonatomic) NSArray* spineArray;
 @property (nonatomic, retain) SearchResult* currentSearchResult;
 
-
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (retain, nonatomic) IBOutlet UISlider *pageSlider;
 @property (retain, nonatomic) IBOutlet UILabel *pageLabel;
 
+@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *chapterListButton;
 
-- (NSArray*)getSpineArray;
 
 
 @end

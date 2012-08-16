@@ -12,4 +12,7 @@
 @protocol IChapterDelegate <NSObject>
 @required
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter;
+- (int) getCurrentFontPercentSize;
+- (NSString*) getSpinePath;
+-(CGRect)getCurrentWindowSize;
 @end

@@ -10,6 +10,7 @@
 #import "EPubViewController.h"
 #import "EPubService.h"
 
+
 @implementation AppDelegate
 
 - (void)dealloc
@@ -36,8 +37,9 @@
     [masterController setWebViewDelegate:epubViewControlller];
     
     [[self window] addSubview:[epubViewControlller view]];
-
+    
     [[self window] makeKeyAndVisible];
+    
     return YES;
 }
 

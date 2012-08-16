@@ -11,6 +11,10 @@
 #import "ChapterListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Chapter.h"
+#import "SearchResultsViewController.h"
+#import "SearchResult.h"
+#import "UIWebView+SearchWebView.h"
+
 
 @interface EPubViewController ()
 
@@ -24,6 +28,8 @@
 @synthesize pageLabel;
 @synthesize chapterListButton;
 @synthesize spineArray;
+@synthesize toolbar;
+
 
 
 - (void)dealloc
@@ -36,7 +42,9 @@
     [pageLabel release];
     [chapterListButton release];
     [spineArray release];
-    [super dealloc];
+    [toolbar release];
+
+       [super dealloc];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -48,23 +56,6 @@
     return self;
 }
 
- 
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-    float x = [((UITouch*)[touches anyObject]) locationInView:self.view].x;
-        
-    if(x < 384){
-        //touch to the left
-        [self gotoPrevPage];
-    }else {
-        //touch to the right
-        [self gotoNextPage];
-
-    }
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,6 +63,8 @@
     [webView setDelegate:self];
     
     webView.opaque = NO;
+    
+
     
 	UIScrollView* sv = nil;
 	for (UIView* v in  webView.subviews) {
@@ -82,13 +75,14 @@
 		}
 	}
     
-    //currentTextSize = 100;
+    currentTextSize = 100;
 	currentFontText = @"Times New Roman";
 	currentSpineIndex = 0;
     currentPageInSpineIndex = 0;
     
     UISwipeGestureRecognizer* rightSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoNextPage)] autorelease];
 	[rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [rightSwipeRecognizer setNumberOfTouchesRequired: 1];
 	
 	UISwipeGestureRecognizer* leftSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)] autorelease];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -107,6 +101,12 @@
     
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
+    
+
+    searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
+	//searchResViewController.delegate = self;
+    
+
 }
 
 - (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
@@ -131,7 +131,11 @@
         */
         if(currentTextSize-2>=50){
 			currentTextSize-=2;
-			[self changeFontSize:currentTextSize];
+            NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
+                                  currentTextSize];
+            [webView stringByEvaluatingJavaScriptFromString:jsString];
+            [jsString release];
+			
 		}
         
         
@@ -139,10 +143,19 @@
         
         if(currentTextSize+2<=200){
 			currentTextSize+=2;
-			[self changeFontSize:currentTextSize];
+            NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
+                                  currentTextSize];
+            [webView stringByEvaluatingJavaScriptFromString:jsString];
+            [jsString release];
 		}
     }
+    
+
+    
+    
 }
+
+
 
 -(void)changeFontSize:(int)fontSize{
 	currentTextSize = fontSize;
@@ -180,8 +193,7 @@
         
         [tmpChapter setChapterDelegate: self];
         [tmpArray addObject: tmpChapter];
-        [tmpChapter release];
-        
+        [tmpChapter release]; 
     }
      
     [self setSpineArray: tmpArray];
@@ -218,21 +230,35 @@
 
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    
+	if(searchResultsPopover==nil){
+		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchResViewController];
+		[searchResultsPopover setPopoverContentSize:CGSizeMake(400, 600)];
+	}
+	if (![searchResultsPopover isPopoverVisible]) {
+		[searchResultsPopover presentPopoverFromRect:searchBar.bounds inView:searchBar permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+    //	NSLog(@"Searching for %@", [searchBar text]);
+	if(!searching){
+		searching = YES;
+		[searchResViewController searchString:[searchBar text]];
+        [searchBar resignFirstResponder];
+	}
+}
+
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
     
+    paginating = NO;
     totalPagesCount+=chapter.pageCount;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
-    {
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
-        [pageLabel setText:[NSString stringWithFormat:@"? of %d", totalPagesCount]];
-	}
-    else {
-        
-		paginating = NO;
-        [self updateSlider];
-    }
+	
+    NSLog(@"updateSlider");        
+  // [self updateSlider];
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -246,8 +272,10 @@
 	[self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 	currentPageInSpineIndex = pageIndex;
 	currentSpineIndex = spineIndex;
+    
     if(!paginating)
         [self updateSlider];
+    
 }
 
 
@@ -262,7 +290,8 @@
         
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
     }
-    NSLog(@"spineArray count = %d", [[self spineArray] count] );
+   
+  
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -420,15 +449,12 @@
 -(void) validateTransitionAnimation: (NSString*)type{
     
     
-   
-    
-    
     switch (self.interfaceOrientation) {
         case 4:
             [self makeTransitionAnimation:type withOrientation: @"fromRight"];
             break;
         case 3:
-            [self makeTransitionAnimation:type withOrientation: @"fromTop"];
+            [self makeTransitionAnimation:type withOrientation: @"fromDown"];
             break;
         case 1:
             [self makeTransitionAnimation:type withOrientation: @"fromRight"];
@@ -446,17 +472,23 @@
 -(void) makeTransitionAnimation: (NSString*)type withOrientation: (NSString*) subtype {
 
     CATransition *transition = [CATransition animation];
+     
     [transition setDelegate:self];
     [transition setDuration:0.5f];
     [transition setType:type];
-    [transition setSubtype:subtype];
-    [[[self view]layer] addAnimation:transition forKey:@"UnCurlAnim"];
+    [transition setSubtype: subtype];
+    [webView.layer addAnimation:transition forKey:@"pageCurlAnimation"];
+    
+   
 
 }
 
 -(void) updateSlider{
+    
+    if(totalPagesCount > [self getGlobalPageCount]){
         [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
 		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+    }
 }
 
 - (IBAction) slidingStarted:(id)sender{
@@ -518,6 +550,11 @@
 -(NSArray*)getCurrentSpineArray
 {
     return self.spineArray;
+}
+
+-(void) setSearching:(BOOL)value{
+    
+    searching = value;
 }
 
 @end

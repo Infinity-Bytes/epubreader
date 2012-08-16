@@ -44,6 +44,13 @@
 		7EEE60A015D31D0800039462 /* MasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE609F15D31D0800039462 /* MasterController.m */; };
 		7EEE60A515D31DAC00039462 /* EPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE60A315D31DAC00039462 /* EPubViewController.m */; };
 		7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE60A415D31DAC00039462 /* EPubViewController.xib */; };
+		CC8C981815DC513800E283A1 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C981715DC513800E283A1 /* SearchResultsViewController.m */; };
+		CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C981A15DC602F00E283A1 /* SearchResult.m */; };
+		CC8F713715DB16110099FD55 /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8F713415DB16110099FD55 /* MFSideMenuManager.m */; };
+		CC8F713815DB16110099FD55 /* UIViewController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8F713615DB16110099FD55 /* UIViewController+MFSideMenu.m */; };
+		CC8F713B15DB18330099FD55 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8F713A15DB18330099FD55 /* SideMenuViewController.m */; };
+		CC8F716515DB2F8A0099FD55 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = CC8F716415DB2F8A0099FD55 /* SearchWebView.js */; };
+		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
 		CC96831015D5DCA900280420 /* ChapterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC96830F15D5DCA900280420 /* ChapterListViewController.m */; };
 /* End PBXBuildFile section */
@@ -108,7 +115,6 @@
 		7E90C5D015D4640B00E99ED8 /* UIWebView+SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+SearchWebView.h"; sourceTree = "<group>"; };
 		7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+SearchWebView.m"; sourceTree = "<group>"; };
 		7E90C5DE15D4773400E99ED8 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
-		7E90C5DF15D4773400E99ED8 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 		7EEE601315D317B700039462 /* EPubReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPubReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEE601715D317B700039462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7EEE601915D317B700039462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +133,22 @@
 		7EEE60A315D31DAC00039462 /* EPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPubViewController.m; sourceTree = "<group>"; };
 		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
 		CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISpineArrayManagerDelegate.h; sourceTree = "<group>"; };
+		CC8C981615DC513800E283A1 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
+		CC8C981715DC513800E283A1 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		CC8C981A15DC602F00E283A1 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		CC8F712215DB114C0099FD55 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
+		CC8F712315DB114C0099FD55 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
+		CC8F712415DB114C0099FD55 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		CC8F712515DB114C0099FD55 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
+		CC8F713215DB16110099FD55 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
+		CC8F713315DB16110099FD55 /* MFSideMenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuManager.h; sourceTree = "<group>"; };
+		CC8F713415DB16110099FD55 /* MFSideMenuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuManager.m; sourceTree = "<group>"; };
+		CC8F713515DB16110099FD55 /* UIViewController+MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenu.h"; sourceTree = "<group>"; };
+		CC8F713615DB16110099FD55 /* UIViewController+MFSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenu.m"; sourceTree = "<group>"; };
+		CC8F713915DB18330099FD55 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		CC8F713A15DB18330099FD55 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		CC8F716415DB2F8A0099FD55 /* SearchWebView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SearchWebView.js; sourceTree = "<group>"; };
+		CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
 		CC91A27415D5CBDC00AB269F /* hungerGames.epub */ = {isa = PBXFileReference; lastKnownFileType = file; name = hungerGames.epub; path = ../hungerGames.epub; sourceTree = "<group>"; };
 		CC96830915D5D93400280420 /* ChapterListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterListViewController.xib; sourceTree = "<group>"; };
 		CC96830E15D5DCA800280420 /* ChapterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterListViewController.h; sourceTree = "<group>"; };
@@ -322,6 +344,8 @@
 		7EEE604B15D318B700039462 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				CC8F716415DB2F8A0099FD55 /* SearchWebView.js */,
+				CC8F712015DB112E0099FD55 /* MFSideMenu */,
 				7E8B6BD815D4460600EE70B5 /* ZipArchive */,
 				7E8B6BD715D445F700EE70B5 /* TouchXML */,
 			);
@@ -343,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				7E90C5DE15D4773400E99ED8 /* SearchResult.h */,
-				7E90C5DF15D4773400E99ED8 /* SearchResult.m */,
+				CC8C981A15DC602F00E283A1 /* SearchResult.m */,
 				7E8B6ACC15D4318B00EE70B5 /* Chapter.h */,
 				7E8B6ACD15D4318B00EE70B5 /* Chapter.m */,
 			);
@@ -374,6 +398,7 @@
 			children = (
 				7EEE60A415D31DAC00039462 /* EPubViewController.xib */,
 				CC96830915D5D93400280420 /* ChapterListViewController.xib */,
+				CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -392,12 +417,16 @@
 			isa = PBXGroup;
 			children = (
 				7EEE609815D31B3100039462 /* Protocols */,
+				CC8C981615DC513800E283A1 /* SearchResultsViewController.h */,
+				CC8C981715DC513800E283A1 /* SearchResultsViewController.m */,
 				7EEE60A215D31DAC00039462 /* EPubViewController.h */,
 				7EEE60A315D31DAC00039462 /* EPubViewController.m */,
 				7E90C5BC15D45B1600E99ED8 /* ChapterWebDelegate.h */,
 				7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */,
 				CC96830E15D5DCA800280420 /* ChapterListViewController.h */,
 				CC96830F15D5DCA900280420 /* ChapterListViewController.m */,
+				CC8F713915DB18330099FD55 /* SideMenuViewController.h */,
+				CC8F713A15DB18330099FD55 /* SideMenuViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -418,6 +447,22 @@
 				CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		CC8F712015DB112E0099FD55 /* MFSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F713215DB16110099FD55 /* MFSideMenu.h */,
+				CC8F713315DB16110099FD55 /* MFSideMenuManager.h */,
+				CC8F713415DB16110099FD55 /* MFSideMenuManager.m */,
+				CC8F713515DB16110099FD55 /* UIViewController+MFSideMenu.h */,
+				CC8F713615DB16110099FD55 /* UIViewController+MFSideMenu.m */,
+				CC8F712215DB114C0099FD55 /* back-arrow.png */,
+				CC8F712315DB114C0099FD55 /* back-arrow@2x.png */,
+				CC8F712415DB114C0099FD55 /* menu-icon.png */,
+				CC8F712515DB114C0099FD55 /* menu-icon@2x.png */,
+			);
+			name = MFSideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,6 +520,7 @@
 				7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */,
 				7E8B6AD215D436C100EE70B5 /* vhugo.epub in Resources */,
 				CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */,
+				CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +560,12 @@
 				7E90C5D315D4640B00E99ED8 /* NSString+HTML.m in Sources */,
 				7E90C5D515D4640B00E99ED8 /* UIWebView+SearchWebView.m in Sources */,
 				CC96831015D5DCA900280420 /* ChapterListViewController.m in Sources */,
+				CC8F713715DB16110099FD55 /* MFSideMenuManager.m in Sources */,
+				CC8F713815DB16110099FD55 /* UIViewController+MFSideMenu.m in Sources */,
+				CC8F713B15DB18330099FD55 /* SideMenuViewController.m in Sources */,
+				CC8F716515DB2F8A0099FD55 /* SearchWebView.js in Sources */,
+				CC8C981815DC513800E283A1 /* SearchResultsViewController.m in Sources */,
+				CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@
 @synthesize windowSize;
 @synthesize chapterDelegate;
 
+
 - (void)dealloc
 {
     [title release];
@@ -40,7 +41,7 @@
         chapterIndex = theIndex;
         
 		NSString* html = [[NSString alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:theSpinePath]] encoding:NSUTF8StringEncoding];
-        
+                
 		text = [[html stringByConvertingHTMLToPlainText] retain];
         
 		[html release];
@@ -50,6 +51,7 @@
 
 
 - (void) loadChapterWithWindowSize:(CGRect)theWindowSize fontPercentSize:(int) theFontPercentSize fontFamily:(NSString*)theFontFamily{
+    
 	fontPercentSize = theFontPercentSize;
     windowSize = theWindowSize;
 	_fontFamily = theFontFamily;
@@ -58,7 +60,11 @@
     [webView setDelegate:self];
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:spinePath]];
     [webView loadRequest:urlRequest];
+    
+   
 }
+
+
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *varMySheet = @"var mySheet = document.styleSheets[0];";
@@ -100,5 +106,22 @@
     [[self chapterDelegate] chapterDidFinishLoad:self];
 
 }
+
+-(NSString*)getSpinePath{
+    
+    return self.spinePath;
+}
+
+-(CGRect)getCurrentWindowSize{
+    
+    return self.windowSize;
+    
+}
+
+-(int)getCurrentFontPercentSize{
+    
+    return self.fontPercentSize;
+}
+
 
 @end

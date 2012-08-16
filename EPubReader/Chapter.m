@@ -8,8 +8,9 @@
 
 #import "Chapter.h"
 
-@implementation Chapter
+@implementation Chapter;
 @synthesize path;
 @synthesize index;
 @synthesize title;
+@synthesize text;
 @end

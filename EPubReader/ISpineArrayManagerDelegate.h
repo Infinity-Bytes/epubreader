@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class SearchResult;
+
 @protocol ISpineArrayManagerDelegate <NSObject>
 
+
 -(NSArray*)getCurrentSpineArray;
+-(int)getCurrentTextSize;
+-(void) setSearching:(BOOL)value;
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult;
 
 @end
