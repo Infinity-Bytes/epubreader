@@ -58,7 +58,6 @@
 		CC8F716515DB2F8A0099FD55 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = CC8F716415DB2F8A0099FD55 /* SearchWebView.js */; };
 		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
-		CC96831015D5DCA900280420 /* ChapterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC96830F15D5DCA900280420 /* ChapterListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,8 +163,6 @@
 		CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
 		CC91A27415D5CBDC00AB269F /* hungerGames.epub */ = {isa = PBXFileReference; lastKnownFileType = file; name = hungerGames.epub; path = ../hungerGames.epub; sourceTree = "<group>"; };
 		CC96830915D5D93400280420 /* ChapterListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChapterListViewController.xib; sourceTree = "<group>"; };
-		CC96830E15D5DCA800280420 /* ChapterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterListViewController.h; sourceTree = "<group>"; };
-		CC96830F15D5DCA900280420 /* ChapterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterListViewController.m; sourceTree = "<group>"; };
 		CC9712FC15D5C9C8006DAF84 /* Justine.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Justine.epub; sourceTree = "<group>"; };
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
@@ -443,8 +440,6 @@
 				7EEE60A315D31DAC00039462 /* EPubViewController.m */,
 				7E90C5BC15D45B1600E99ED8 /* ChapterWebDelegate.h */,
 				7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */,
-				CC96830E15D5DCA800280420 /* ChapterListViewController.h */,
-				CC96830F15D5DCA900280420 /* ChapterListViewController.m */,
 				CC8F713915DB18330099FD55 /* SideMenuViewController.h */,
 				CC8F713A15DB18330099FD55 /* SideMenuViewController.m */,
 			);
@@ -584,7 +579,6 @@
 				7E90C5D215D4640B00E99ED8 /* GTMNSString+HTML.m in Sources */,
 				7E90C5D315D4640B00E99ED8 /* NSString+HTML.m in Sources */,
 				7E90C5D515D4640B00E99ED8 /* UIWebView+SearchWebView.m in Sources */,
-				CC96831015D5DCA900280420 /* ChapterListViewController.m in Sources */,
 				CC8F713715DB16110099FD55 /* MFSideMenuManager.m in Sources */,
 				CC8F713815DB16110099FD55 /* UIViewController+MFSideMenu.m in Sources */,
 				CC8F713B15DB18330099FD55 /* SideMenuViewController.m in Sources */,

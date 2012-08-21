@@ -11,6 +11,7 @@
 #import "EPubService.h"
 #import "SideMenuViewController.h"
 #import "MFSideMenuManager.h"
+#import "MFSideMenu.h"
 
 @implementation AppDelegate
 
@@ -29,26 +30,47 @@
     masterController = [[MasterController alloc] init];
     
     EPubService* epubService = [[EPubService alloc]init];
-    EPubViewController* epubViewControlller =  [[EPubViewController alloc] init];
+    //EPubViewController* epubViewController =  [[EPubViewController alloc] init];
     
-    [epubViewControlller setEpubDelegate: masterController];
+    EPubViewController *epubViewController = [[EPubViewController alloc] initWithNibName:@"EPubViewController" bundle:nil];
+
+    
+    [epubViewController setEpubDelegate: masterController];
     
     
     [masterController setEpubService:epubService];
-    [masterController setWebViewDelegate:epubViewControlller];
     
-    [[self window] addSubview:[epubViewControlller view]];
+    
+    [masterController setWebViewDelegate:epubViewController];
+    
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:epubViewController];
+    
+    self.window.rootViewController = navigationController;
+  
+
+    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] init];
+    [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
+    
+    // make sure to display the navigation controller before calling this
+    [MFSideMenuManager configureWithNavigationController:navigationController
+                                      sideMenuController:sideMenuViewController];
+
+     
+    [epubViewController setupSideMenuBarButtonItem];
+
+    
+    [[self window] addSubview:[sideMenuViewController view]];
     
     [[self window] makeKeyAndVisible];
     
     
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:epubViewControlller];
-//    
-//    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] init];
-//    
-//    self.window.rootViewController = navigationController;
-//    [self.window makeKeyAndVisible];
-//    [MFSideMenuManager configureWithNavigationController:navigationController sideMenuController:sideMenuViewController];
+  
+ 
+    
+    [sideMenuViewController release];
+    [navigationController release];
+
     
     return YES;
 }

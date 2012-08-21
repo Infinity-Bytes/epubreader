@@ -14,4 +14,5 @@
 
 -(void) obtainEPub: (NSString*)path;
 -(EPubViewController*)getSelf;
+-(int)getCurrentSpineIndex;
 @end

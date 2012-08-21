@@ -10,7 +10,7 @@
 
 @implementation SideMenuViewController
 
-@synthesize epubDelegate;
+@synthesize spineArrayManagerDelegate;
 
 - (void)viewDidLoad
 {
@@ -21,17 +21,18 @@
 #pragma mark - UITableViewDataSource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Section %d", section];
+    return [NSString stringWithFormat:@"Capitulos  %d", section];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [[self.spineArrayManagerDelegate getCurrentSpineArray] count];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -43,8 +44,11 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Item %d", indexPath.row];
     
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.text = [[[self.spineArrayManagerDelegate getCurrentSpineArray] objectAtIndex:[indexPath row]] title];
     return cell;
 }
 
@@ -52,10 +56,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-       
-    NSArray *controllers = [NSArray arrayWithObject:[epubDelegate getSelf]];
-    [MFSideMenuManager sharedManager].navigationController.viewControllers = controllers;
-    [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    
+     [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
 }
 
 @end

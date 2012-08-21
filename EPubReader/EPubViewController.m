@@ -12,6 +12,7 @@
 #import "Chapter.h"
 #import "ChapterListViewController.h"
 #import "FontView.h"
+#import "MFSideMenu.h"
 
 @implementation EPubViewController
 
@@ -59,8 +60,11 @@ int count = 0;
     [webView setDelegate:self];
     
     webView.opaque = NO;
+
+      
     
-   // [self setupSideMenuBarButtonItem];
+
+
     
 	UIScrollView* sv = nil;
 	for (UIView* v in  webView.subviews) {
@@ -99,7 +103,7 @@ int count = 0;
     
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
-    
+        
     [[self pageLabel ] setAlpha:0];
     [[self pageSlider ] setAlpha:0];
     
@@ -243,6 +247,7 @@ int count = 0;
 - (IBAction) showChapterIndex:(id)sender{
 	if(chaptersPopover==nil){
 		
+        
         ChapterListViewController* chapterListView = [[ChapterListViewController alloc] initWithNibName:@"ChapterListViewController" bundle:[NSBundle mainBundle]];
         [chapterListView setSpineArrayManagerDelegate:self];
 		chaptersPopover = [[UIPopoverController alloc] initWithContentViewController:chapterListView];
@@ -342,6 +347,8 @@ int count = 0;
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
     }
    
+    NSLog(@"spineArrayIndex = %d", currentSpineIndex);
+
   
 }
 
@@ -503,7 +510,7 @@ int count = 0;
     
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: @"fromUp"];
+            [self makeTransitionAnimation:type withOrientation: @"fromTop"];
             break;
         case 3:
             [self makeTransitionAnimation:type withOrientation: @"fromDown"];
@@ -618,4 +625,11 @@ int count = 0;
     
     return paginating;
 }
+
+-(int)getCurrentSpineIndex{
+    
+    return currentSpineIndex;
+}
+
+
 @end

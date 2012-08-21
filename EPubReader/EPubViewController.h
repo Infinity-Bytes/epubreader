@@ -16,7 +16,7 @@
 
 @class FontView;
 
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;

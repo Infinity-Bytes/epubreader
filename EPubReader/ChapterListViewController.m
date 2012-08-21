@@ -62,8 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //[epubViewController.spineArray count]
-    //NSLog(@"SpineArray count = %d", [epubViewController.spineArray count]);
+  
     return [[self.spineArrayManagerDelegate getCurrentSpineArray] count];
 }
 
