@@ -13,10 +13,12 @@
 #import "SearchResult.h"
 #import "SearchResultsViewController.h"
 #import "ISpineArrayManagerDelegate.h"
+#import "ISliderViewController.h"
+#import "SliderViewController.h"
 
 @class FontView;
 
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate, ISliderViewController>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;
@@ -39,19 +41,21 @@
     
     SearchResult* currentSearchResult;
     
-     SearchResultsViewController* searchResViewController;
-  
+    SearchResultsViewController* searchResViewController;
+    
+    SliderViewController *slider;
+    
+
     }
 
 
 @property(retain,nonatomic) id<IEPubDelegate> epubDelegate;
+@property(retain, nonatomic) SliderViewController* sliderDelegate;
 @property(retain,nonatomic) NSArray* spineArray;
 @property (nonatomic, retain) SearchResult* currentSearchResult;
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
-@property (retain, nonatomic) IBOutlet UISlider *pageSlider;
-@property (retain, nonatomic) IBOutlet UILabel *pageLabel;
-
+@property (retain, nonatomic) IBOutlet UIView *sliderView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *chapterListButton;

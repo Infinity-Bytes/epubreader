@@ -50,6 +50,8 @@
 		CC83DE6115DC84F900509A29 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE6015DC84F900509A29 /* Default@2x.png */; };
 		CC84EC6D15DDAADF00EED8F1 /* FontView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC84EC6C15DDAADF00EED8F1 /* FontView.xib */; };
 		CC84EC7315DDAD0B00EED8F1 /* FontView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC84EC7215DDAD0B00EED8F1 /* FontView.m */; };
+		CC8819D215E706310025D3C9 /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8819D115E706310025D3C9 /* SliderViewController.m */; };
+		CC8819D515E707AD0025D3C9 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8819D415E707AD0025D3C9 /* SliderViewController.xib */; };
 		CC8C981815DC513800E283A1 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C981715DC513800E283A1 /* SearchResultsViewController.m */; };
 		CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8C981A15DC602F00E283A1 /* SearchResult.m */; };
 		CC8F713715DB16110099FD55 /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8F713415DB16110099FD55 /* MFSideMenuManager.m */; };
@@ -144,6 +146,10 @@
 		CC84EC6C15DDAADF00EED8F1 /* FontView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontView.xib; sourceTree = "<group>"; };
 		CC84EC7115DDAD0B00EED8F1 /* FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontView.h; sourceTree = "<group>"; };
 		CC84EC7215DDAD0B00EED8F1 /* FontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontView.m; sourceTree = "<group>"; };
+		CC8819D015E706310025D3C9 /* SliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderViewController.h; sourceTree = "<group>"; };
+		CC8819D115E706310025D3C9 /* SliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderViewController.m; sourceTree = "<group>"; };
+		CC8819D415E707AD0025D3C9 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		CC8819D615E708C60025D3C9 /* ISliderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISliderViewController.h; sourceTree = "<group>"; };
 		CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISpineArrayManagerDelegate.h; sourceTree = "<group>"; };
 		CC8C981615DC513800E283A1 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		CC8C981715DC513800E283A1 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
@@ -414,6 +420,7 @@
 				CC96830915D5D93400280420 /* ChapterListViewController.xib */,
 				CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */,
 				CC84EC6C15DDAADF00EED8F1 /* FontView.xib */,
+				CC8819D415E707AD0025D3C9 /* SliderViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -442,6 +449,8 @@
 				7E90C5BD15D45B1600E99ED8 /* ChapterWebDelegate.m */,
 				CC8F713915DB18330099FD55 /* SideMenuViewController.h */,
 				CC8F713A15DB18330099FD55 /* SideMenuViewController.m */,
+				CC8819D015E706310025D3C9 /* SliderViewController.h */,
+				CC8819D115E706310025D3C9 /* SliderViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -460,6 +469,7 @@
 				7EEE609915D31B4500039462 /* IWebViewDelegate.h */,
 				7E90C5C815D461AC00E99ED8 /* IChapterDelegate.h */,
 				CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */,
+				CC8819D615E708C60025D3C9 /* ISliderViewController.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -541,6 +551,7 @@
 				CC83DE5F15DC84F700509A29 /* Default.png in Resources */,
 				CC83DE6115DC84F900509A29 /* Default@2x.png in Resources */,
 				CC84EC6D15DDAADF00EED8F1 /* FontView.xib in Resources */,
+				CC8819D515E707AD0025D3C9 /* SliderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +597,7 @@
 				CC8C981815DC513800E283A1 /* SearchResultsViewController.m in Sources */,
 				CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */,
 				CC84EC7315DDAD0B00EED8F1 /* FontView.m in Sources */,
+				CC8819D215E706310025D3C9 /* SliderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,22 +672,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		7EEE603615D317B700039462 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
@@ -685,7 +681,25 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7EEE603615D317B700039462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

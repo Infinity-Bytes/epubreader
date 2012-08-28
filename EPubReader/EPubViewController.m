@@ -10,20 +10,20 @@
 #import "ChapterWebDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Chapter.h"
-#import "ChapterListViewController.h"
 #import "FontView.h"
 #import "MFSideMenu.h"
+#import "SliderViewController.h"
 
 @implementation EPubViewController
 
 @synthesize epubDelegate;
+@synthesize sliderDelegate;
 @synthesize webView;
-@synthesize pageSlider;
-@synthesize pageLabel;
 @synthesize chapterListButton;
 @synthesize fontListButton;
 @synthesize spineArray;
 @synthesize toolbar;
+@synthesize sliderView;
 int count = 0;
 
 
@@ -34,12 +34,11 @@ int count = 0;
     [currentFontText release];
     
     [webView release];
-    [pageSlider release];
-    [pageLabel release];
     [chapterListButton release];
     [fontListButton release];
     [spineArray release];
     [toolbar release];
+    [sliderView release];
 
        [super dealloc];
 }
@@ -104,8 +103,14 @@ int count = 0;
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
         
-    [[self pageLabel ] setAlpha:0];
-    [[self pageSlider ] setAlpha:0];
+    slider = [[SliderViewController alloc] initWithNibName:@"SliderViewController" bundle:nil];
+    [slider setSliderViewDelegate:self];
+    
+    [ sliderView addSubview:[slider view]];
+
+   
+    [[slider pageLabel ] setAlpha:0];
+    [[slider pageSlider ] setAlpha:0];
     
 }
 
@@ -150,7 +155,11 @@ int count = 0;
 		}
     }
     
-
+    if(UIGestureRecognizerStateEnded == [sender state]){
+        // do something
+        
+        [self updatePagination];
+    }
     
     
 }
@@ -200,8 +209,6 @@ int count = 0;
 - (void)viewDidUnload
 {
     [self setWebView:nil];
-    [self setPageSlider:nil];
-    [self setPageLabel:nil];
     [super viewDidUnload];
 
 }
@@ -245,6 +252,8 @@ int count = 0;
 }
 
 - (IBAction) showChapterIndex:(id)sender{
+    
+    /*
 	if(chaptersPopover==nil){
 		
         
@@ -259,7 +268,7 @@ int count = 0;
 	}else{
 		[chaptersPopover presentPopoverFromBarButtonItem:chapterListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	}
-    
+    */
 
 }
 
@@ -294,14 +303,14 @@ int count = 0;
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:0.1f];
-        [[self pageSlider] setAlpha:1];
-        [[self pageLabel] setAlpha:1];
+        [[slider pageSlider] setAlpha:1];
+        [[slider pageLabel] setAlpha:1];
         [UIView commitAnimations];
         
         
         
                 
-        [self updateSlider];
+        [slider updateSlider];
     }
 }
 
@@ -318,14 +327,14 @@ int count = 0;
 	currentSpineIndex = spineIndex;
     
     if(!paginating)
-        [self updateSlider];
+        [slider updateSlider];
     else{
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:0.1f];
-        [[self pageSlider] setAlpha:0];
-        [[self pageLabel] setAlpha:0];
+        [[slider pageSlider] setAlpha:0];
+        [[slider pageLabel] setAlpha:0];
         [UIView commitAnimations];
 
     }
@@ -420,7 +429,7 @@ int count = 0;
 	[webView stringByEvaluatingJavaScriptFromString:goTo];
     
     if(!paginating)
-        [self updateSlider];
+        [slider updateSlider];
     
 	
 	webView.hidden = NO;
@@ -542,47 +551,7 @@ int count = 0;
 
 }
 
--(void) updateSlider{
-    
-    if(totalPagesCount > [self getGlobalPageCount]){
-        [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
-		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
-    }
-}
 
-- (IBAction) slidingStarted:(id)sender{
-    int targetPage = ((pageSlider.value/(float)100)*(float)totalPagesCount);
-    
-    if (targetPage==0)
-        targetPage++;
-    
-	[pageLabel setText:[NSString stringWithFormat:@"%d/%d", targetPage, totalPagesCount]];
-
-}
-
-
-
-
-- (IBAction) slidingEnded:(id)sender{
-    int targetPage = (int)((pageSlider.value/(float)100)*(float)totalPagesCount);
-    int pageSum = 0;
-	int chapterIndex = 0;
-	int pageIndex = 0;
-    
-    if (targetPage==0)
-        targetPage++;
-    
-    for(chapterIndex=0; chapterIndex<[[self spineArray] count]; chapterIndex++){
-        
-        pageSum+=[[[self spineArray] objectAtIndex:chapterIndex] pageCount];
-        if(pageSum>=targetPage){
-            pageIndex = [[[self spineArray] objectAtIndex:chapterIndex] pageCount] - 1 - pageSum + targetPage;
-			break;
-        }
-    }
-    
-    [self loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
-}
 
 - (void) loadPage:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
 	
@@ -629,6 +598,11 @@ int count = 0;
 -(int)getCurrentSpineIndex{
     
     return currentSpineIndex;
+}
+
+-(int)getTotalPagesCount{
+    
+    return totalPagesCount;
 }
 
 
