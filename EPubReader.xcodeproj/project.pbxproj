@@ -60,6 +60,8 @@
 		CC8F716515DB2F8A0099FD55 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = CC8F716415DB2F8A0099FD55 /* SearchWebView.js */; };
 		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
+		CCFECDC315ED9233006C3411 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFECDC215ED9233006C3411 /* MainView.xib */; };
+		CCFECDF615EDA150006C3411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFECDF515EDA150006C3411 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +174,9 @@
 		CC9712FC15D5C9C8006DAF84 /* Justine.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Justine.epub; sourceTree = "<group>"; };
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
+		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		CCFECDF415EDA150006C3411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CCFECDF515EDA150006C3411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +426,9 @@
 				CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */,
 				CC84EC6C15DDAADF00EED8F1 /* FontView.xib */,
 				CC8819D415E707AD0025D3C9 /* SliderViewController.xib */,
+				CCFECDC215ED9233006C3411 /* MainView.xib */,
+				CCFECDF415EDA150006C3411 /* MainViewController.h */,
+				CCFECDF515EDA150006C3411 /* MainViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -552,6 +560,7 @@
 				CC83DE6115DC84F900509A29 /* Default@2x.png in Resources */,
 				CC84EC6D15DDAADF00EED8F1 /* FontView.xib in Resources */,
 				CC8819D515E707AD0025D3C9 /* SliderViewController.xib in Resources */,
+				CCFECDC315ED9233006C3411 /* MainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +607,7 @@
 				CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */,
 				CC84EC7315DDAD0B00EED8F1 /* FontView.m in Sources */,
 				CC8819D215E706310025D3C9 /* SliderViewController.m in Sources */,
+				CCFECDF615EDA150006C3411 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
