@@ -44,6 +44,7 @@
 		7EEE60A015D31D0800039462 /* MasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE609F15D31D0800039462 /* MasterController.m */; };
 		7EEE60A515D31DAC00039462 /* EPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE60A315D31DAC00039462 /* EPubViewController.m */; };
 		7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE60A415D31DAC00039462 /* EPubViewController.xib */; };
+		CC00188F15EEBCAA00B81F5C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00188E15EEBCAA00B81F5C /* MainViewController.m */; };
 		CC83DE5B15DC84DD00509A29 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5A15DC84DD00509A29 /* Icon.png */; };
 		CC83DE5D15DC84E000509A29 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5C15DC84E000509A29 /* Icon@2x.png */; };
 		CC83DE5F15DC84F700509A29 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5E15DC84F700509A29 /* Default.png */; };
@@ -61,7 +62,6 @@
 		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
 		CCFECDC315ED9233006C3411 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFECDC215ED9233006C3411 /* MainView.xib */; };
-		CCFECDF615EDA150006C3411 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFECDF515EDA150006C3411 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +141,8 @@
 		7EEE60A215D31DAC00039462 /* EPubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPubViewController.h; sourceTree = "<group>"; };
 		7EEE60A315D31DAC00039462 /* EPubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPubViewController.m; sourceTree = "<group>"; };
 		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
+		CC00188D15EEBCAA00B81F5C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CC00188E15EEBCAA00B81F5C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CC83DE5A15DC84DD00509A29 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		CC83DE5C15DC84E000509A29 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		CC83DE5E15DC84F700509A29 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -175,8 +177,6 @@
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
 		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		CCFECDF415EDA150006C3411 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		CCFECDF515EDA150006C3411 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,8 +427,6 @@
 				CC84EC6C15DDAADF00EED8F1 /* FontView.xib */,
 				CC8819D415E707AD0025D3C9 /* SliderViewController.xib */,
 				CCFECDC215ED9233006C3411 /* MainView.xib */,
-				CCFECDF415EDA150006C3411 /* MainViewController.h */,
-				CCFECDF515EDA150006C3411 /* MainViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -459,6 +457,8 @@
 				CC8F713A15DB18330099FD55 /* SideMenuViewController.m */,
 				CC8819D015E706310025D3C9 /* SliderViewController.h */,
 				CC8819D115E706310025D3C9 /* SliderViewController.m */,
+				CC00188D15EEBCAA00B81F5C /* MainViewController.h */,
+				CC00188E15EEBCAA00B81F5C /* MainViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -607,7 +607,7 @@
 				CC8C981B15DC602F00E283A1 /* SearchResult.m in Sources */,
 				CC84EC7315DDAD0B00EED8F1 /* FontView.m in Sources */,
 				CC8819D215E706310025D3C9 /* SliderViewController.m in Sources */,
-				CCFECDF615EDA150006C3411 /* MainViewController.m in Sources */,
+				CC00188F15EEBCAA00B81F5C /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,16 +681,16 @@
 		7EEE603515D317B700039462 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: JESUS CAGIDE ALVARADO (WSU594GJC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JESUS CAGIDE ALVARADO (WSU594GJC4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "309A525C-488B-4020-84F0-8F012369399C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "309A525C-488B-4020-84F0-8F012369399C";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -699,16 +699,16 @@
 		7EEE603615D317B700039462 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: JESUS CAGIDE ALVARADO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JESUS CAGIDE ALVARADO";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "66B1E50E-9AF7-4E54-8520-D5928E094475";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "66B1E50E-9AF7-4E54-8520-D5928E094475";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

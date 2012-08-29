@@ -10,12 +10,27 @@
 
 @implementation SideMenuViewController
 
-@synthesize spineArrayManagerDelegate;
+@synthesize spineArrayManagerDelegate, spineArray;
 
+-(void)dealloc{
+    
+    spineArray = nil;
+    [super dealloc];
+}
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
+}
+
+- (id) initWithSpineArray:(NSArray*)array {
+    if (self = [super init]) {
+        self = [[SideMenuViewController alloc] init];
+        
+        self.spineArray = array;
+    }
+    
+    return self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -31,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.spineArrayManagerDelegate getCurrentSpineArray] count];
+    return [[self spineArray]  count];
 
 }
 
@@ -48,7 +63,7 @@
     cell.textLabel.numberOfLines = 2;
     cell.textLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.text = [[[self.spineArrayManagerDelegate getCurrentSpineArray] objectAtIndex:[indexPath row]] title];
+    cell.textLabel.text = [[self.spineArray objectAtIndex:[indexPath row]] title];
     return cell;
 }
 

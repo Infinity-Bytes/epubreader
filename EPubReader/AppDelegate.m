@@ -12,6 +12,7 @@
 #import "SideMenuViewController.h"
 #import "MFSideMenuManager.h"
 #import "MFSideMenu.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
@@ -27,6 +28,9 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
+    MainViewController *mainView = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
+    
+     
     
     masterController = [[MasterController alloc] init];
     
@@ -48,9 +52,11 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:epubViewController];
     
     self.window.rootViewController = navigationController;
-  
+    
+    [masterController obtainEPub:@"Chapters"];
+    
 
-    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] init];
+    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
     [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
     
     // make sure to display the navigation controller before calling this
@@ -60,8 +66,9 @@
      
     [epubViewController setupSideMenuBarButtonItem];
 
+    [[mainView view] addSubview:[sideMenuViewController view]];
     
-    [[self window] addSubview:[sideMenuViewController view]];
+    [[self window] addSubview:[mainView view]];
     
     [[self window] makeKeyAndVisible];
     

@@ -13,6 +13,7 @@
 @interface EPubService : NSObject<IEPubService>
 {
 	NSString* epubFilePath;
+    NSArray* spineArray;
 }
 
 
@@ -21,5 +22,6 @@
 - (NSString*) applicationDocumentsDirectory;
 - (NSString*) parseManifestFile;
 - (void) parseOPF:(NSString*)opfPath;
+-(NSArray*) getSpineArray;
 
 @end

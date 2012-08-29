@@ -159,7 +159,7 @@
         [tmpArray addObject:chapterTmp];
         [chapterTmp release];
 	}
-	
+	spineArray = tmpArray;
 	[self sendChapters: tmpArray];
 	
 	[opfFile release];
@@ -169,6 +169,10 @@
 	[titleDictionary release];
 }
 
+-(NSArray*) getSpineArray{
+    
+    return spineArray;
+}
 
 
 @end

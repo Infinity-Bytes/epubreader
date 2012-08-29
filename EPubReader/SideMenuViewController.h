@@ -7,8 +7,13 @@
 #import <UIKit/UIKit.h>
 #import "ISpineArrayManagerDelegate.h"
 
-@interface SideMenuViewController : UITableViewController
+@interface SideMenuViewController : UITableViewController{
+    
+ 
+}
 
+@property(nonatomic, retain)   NSArray* spineArray;
 @property(nonatomic, assign) id<ISpineArrayManagerDelegate> spineArrayManagerDelegate;
 
+- (id) initWithSpineArray:(NSArray*)array;
 @end
