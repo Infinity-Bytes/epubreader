@@ -25,10 +25,13 @@
 
 - (id) initWithSpineArray:(NSArray*)array {
     if (self = [super init]) {
+        
+        [self setupSideMenuBarButtonItem];
+
         self = [[SideMenuViewController alloc] init];
         
         self.spineArray = array;
-    }
+               }
     
     return self;
 }
@@ -72,7 +75,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+
+    [[self spineArrayManagerDelegate] loadSpine:[indexPath row] atPageIndex:0 highlightSearchResult:nil];
+
      [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    
+    
 }
 
 @end
