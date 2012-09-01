@@ -18,5 +18,6 @@ typedef enum {
 
 // view controllers should call this on viewDidLoad in order to setup the proper UIBarButtonItem
 - (void) setupSideMenuBarButtonItem;
+- (void) toggleSideMenuPressed:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "UIViewController+MFSideMenu.h"
 
 @interface MainViewController ()
 

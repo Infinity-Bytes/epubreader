@@ -30,8 +30,6 @@
     
     MainViewController *mainView = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
     
-     
-    
     masterController = [[MasterController alloc] init];
     
     EPubService* epubService = [[EPubService alloc]init];
@@ -53,6 +51,7 @@
     
     self.window.rootViewController = navigationController;
     
+    
     [masterController obtainEPub:@"Chapters"];
     
 
@@ -61,10 +60,9 @@
     
     // make sure to display the navigation controller before calling this
     [MFSideMenuManager configureWithNavigationController:navigationController
-                                      sideMenuController:sideMenuViewController];
+                                      sideMenuController:sideMenuViewController ];
 
      
-    [epubViewController setupSideMenuBarButtonItem];
 
     [[mainView view] addSubview:[sideMenuViewController view]];
     

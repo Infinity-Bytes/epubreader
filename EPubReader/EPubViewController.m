@@ -24,6 +24,7 @@
 @synthesize spineArray;
 @synthesize toolbar;
 @synthesize sliderView;
+@synthesize btnSave;
 int count = 0;
 
 
@@ -39,6 +40,7 @@ int count = 0;
     [spineArray release];
     [toolbar release];
     [sliderView release];
+    [btnSave release];
 
        [super dealloc];
 }
@@ -48,6 +50,9 @@ int count = 0;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+        
+                
+        
     }
     return self;
 }
@@ -61,10 +66,24 @@ int count = 0;
     webView.opaque = NO;
 
       
+    self.title = @"Epub Reader";
+    [self setupSideMenuBarButtonItem];
+
+
+    /*
     
-
-
-
+    btnSave = [[UIBarButtonItem alloc]
+                                initWithTitle:@"Capitulos"
+                                style:UIBarButtonItemStyleBordered
+                                target:self
+                                action:@selector(showChapterList:)];
+    
+    
+    self.navigationItem.leftBarButtonItem = btnSave;
+    
+    */
+    //[self setupSideMenuBarButtonItem];
+    
     
 	UIScrollView* sv = nil;
 	for (UIView* v in  webView.subviews) {
@@ -113,6 +132,11 @@ int count = 0;
     [[slider pageLabel ] setAlpha:0];
     [[slider pageSlider ] setAlpha:0];
     
+}
+
+-(IBAction)showChapterList:(id)sender{
+    NSLog(@"Show Chapter List");
+    [self toggleSideMenuPressed:nil];
 }
 
 - (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
@@ -210,6 +234,7 @@ int count = 0;
 - (void)viewDidUnload
 {
     [self setWebView:nil];
+    
     [super viewDidUnload];
 
 }

@@ -45,6 +45,8 @@
     
     SliderViewController *slider;
     
+  
+    
 
     }
 
@@ -60,6 +62,7 @@
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *chapterListButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *fontListButton;
+@property(nonatomic, retain)  UIBarButtonItem *btnSave; 
 
 -(void)changeFont:(NSString*)fontName;
 

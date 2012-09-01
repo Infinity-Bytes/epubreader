@@ -26,7 +26,12 @@
 - (id) initWithSpineArray:(NSArray*)array {
     if (self = [super init]) {
         
-        [self setupSideMenuBarButtonItem];
+        // now create a Bar button item
+        UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:[self view]];
+        
+        // set the nav bar's right button item
+        self.navigationItem.rightBarButtonItem = item;
+        [item release];
 
         self = [[SideMenuViewController alloc] init];
         
@@ -79,6 +84,8 @@
     [[self spineArrayManagerDelegate] loadSpine:[indexPath row] atPageIndex:0 highlightSearchResult:nil];
 
      [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    
+
     
     
 }

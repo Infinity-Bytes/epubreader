@@ -7,6 +7,8 @@
 //
 
 #import "ChapterWebDelegate.h"
+#import "UIViewController+MFSideMenu.h"
+#import "MFSideMenu.h"
 #import "NSString+HTML.h"
 
 @implementation ChapterWebDelegate
@@ -104,6 +106,8 @@
     
     [webView dealloc];
     [[self chapterDelegate] chapterDidFinishLoad:self];
+    
+    
 
 }
 
