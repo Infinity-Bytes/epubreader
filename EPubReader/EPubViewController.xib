@@ -58,6 +58,7 @@
 						<string key="NSFrame">{{0, 890}, {768, 70}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -166,7 +167,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">68</int>
+			<int key="maxID">69</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -177,6 +178,7 @@
 						<string key="fontClicked:">id</string>
 						<string key="pinchDetected:">UIGestureRecognizer</string>
 						<string key="showChapterIndex:">id</string>
+						<string key="showChapterList:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="fontClicked:">
@@ -189,6 +191,10 @@
 						</object>
 						<object class="IBActionInfo" key="showChapterIndex:">
 							<string key="name">showChapterIndex:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showChapterList:">
+							<string key="name">showChapterList:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
