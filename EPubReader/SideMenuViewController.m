@@ -44,7 +44,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Capitulos  %d", section];
+    return @"Capítulos";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

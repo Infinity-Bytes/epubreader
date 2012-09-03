@@ -47,6 +47,8 @@
 		CC00188F15EEBCAA00B81F5C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00188E15EEBCAA00B81F5C /* MainViewController.m */; };
 		CC7DE90815F194F900220134 /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7DE90515F194F900220134 /* MFSideMenuManager.m */; };
 		CC7DE90915F194F900220134 /* UIViewController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7DE90715F194F900220134 /* UIViewController+MFSideMenu.m */; };
+		CC7DE90E15F1A70D00220134 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC8F712415DB114C0099FD55 /* menu-icon.png */; };
+		CC7DE90F15F1A70D00220134 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC8F712515DB114C0099FD55 /* menu-icon@2x.png */; };
 		CC83DE5B15DC84DD00509A29 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5A15DC84DD00509A29 /* Icon.png */; };
 		CC83DE5D15DC84E000509A29 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5C15DC84E000509A29 /* Icon@2x.png */; };
 		CC83DE5F15DC84F700509A29 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC83DE5E15DC84F700509A29 /* Default.png */; };
@@ -549,6 +551,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7DE90E15F1A70D00220134 /* menu-icon.png in Resources */,
+				CC7DE90F15F1A70D00220134 /* menu-icon@2x.png in Resources */,
 				7EEE602215D317B700039462 /* InfoPlist.strings in Resources */,
 				7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */,
 				7E8B6AD215D436C100EE70B5 /* vhugo.epub in Resources */,

@@ -33,8 +33,7 @@
     masterController = [[MasterController alloc] init];
     
     EPubService* epubService = [[EPubService alloc]init];
-    //EPubViewController* epubViewController =  [[EPubViewController alloc] init];
-    
+        
     EPubViewController *epubViewController = [[EPubViewController alloc] initWithNibName:@"EPubViewController" bundle:nil];
 
     
@@ -47,9 +46,6 @@
     [masterController setWebViewDelegate:epubViewController];
     
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:epubViewController];
-    
-    self.window.rootViewController = navigationController;
     
     
     [masterController obtainEPub:@"Chapters"];
@@ -58,19 +54,22 @@
     SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
     [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
     
-    // make sure to display the navigation controller before calling this
-    [MFSideMenuManager configureWithNavigationController:navigationController
-                                      sideMenuController:sideMenuViewController ];
-
      
 
-    [[mainView view] addSubview:[sideMenuViewController view]];
+   
     
-    [[self window] addSubview:[mainView view]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
+    self.window.rootViewController = navigationController;
+     [[mainView view] addSubview:[epubViewController view]];
     
     [[self window] makeKeyAndVisible];
     
     
+    // make sure to display the navigation controller before calling this
+    [MFSideMenuManager configureWithNavigationController:navigationController
+                                      sideMenuController:sideMenuViewController];
+    
+
   
  
     
