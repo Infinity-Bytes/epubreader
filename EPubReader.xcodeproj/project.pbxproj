@@ -63,6 +63,7 @@
 		CC8F716515DB2F8A0099FD55 /* SearchWebView.js in Sources */ = {isa = PBXBuildFile; fileRef = CC8F716415DB2F8A0099FD55 /* SearchWebView.js */; };
 		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
+		CCFE272115F5571C00A417BA /* font_image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CCFE272015F5571C00A417BA /* font_image.jpeg */; };
 		CCFECDC315ED9233006C3411 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFECDC215ED9233006C3411 /* MainView.xib */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		CC9712FC15D5C9C8006DAF84 /* Justine.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Justine.epub; sourceTree = "<group>"; };
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
+		CCFE272015F5571C00A417BA /* font_image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = font_image.jpeg; sourceTree = "<group>"; };
 		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -423,6 +425,7 @@
 		7EEE608B15D31AAD00039462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CCFE272015F5571C00A417BA /* font_image.jpeg */,
 				7EEE60A415D31DAC00039462 /* EPubViewController.xib */,
 				CC96830915D5D93400280420 /* ChapterListViewController.xib */,
 				CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */,
@@ -565,6 +568,7 @@
 				CC84EC6D15DDAADF00EED8F1 /* FontView.xib in Resources */,
 				CC8819D515E707AD0025D3C9 /* SliderViewController.xib in Resources */,
 				CCFECDC315ED9233006C3411 /* MainView.xib in Resources */,
+				CCFE272115F5571C00A417BA /* font_image.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

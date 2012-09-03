@@ -44,9 +44,7 @@
     SearchResultsViewController* searchResViewController;
     
     SliderViewController *slider;
-    
   
-    
 
     }
 
