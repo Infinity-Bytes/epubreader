@@ -64,6 +64,13 @@
 		CC8F716815DB30110099FD55 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */; };
 		CC96830A15D5D93400280420 /* ChapterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC96830915D5D93400280420 /* ChapterListViewController.xib */; };
 		CCFE272115F5571C00A417BA /* font_image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CCFE272015F5571C00A417BA /* font_image.jpeg */; };
+		CCFE273E15F55F4500A417BA /* KSCGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273115F55F4500A417BA /* KSCGUtils.m */; };
+		CCFE273F15F55F4500A417BA /* KSPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273315F55F4500A417BA /* KSPopoverView.m */; };
+		CCFE274015F55F4500A417BA /* KSPopoverViewButtonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273515F55F4500A417BA /* KSPopoverViewButtonBase.m */; };
+		CCFE274115F55F4500A417BA /* KSPopoverViewButtonLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273715F55F4500A417BA /* KSPopoverViewButtonLabel.m */; };
+		CCFE274215F55F4500A417BA /* KSPopoverViewButtonOnOff.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273915F55F4500A417BA /* KSPopoverViewButtonOnOff.m */; };
+		CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273B15F55F4500A417BA /* KSPopoverViewParentButton.m */; };
+		CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */; };
 		CCFECDC315ED9233006C3411 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFECDC215ED9233006C3411 /* MainView.xib */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +187,20 @@
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
 		CCFE272015F5571C00A417BA /* font_image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = font_image.jpeg; sourceTree = "<group>"; };
+		CCFE273015F55F4500A417BA /* KSCGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCGUtils.h; sourceTree = "<group>"; };
+		CCFE273115F55F4500A417BA /* KSCGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCGUtils.m; sourceTree = "<group>"; };
+		CCFE273215F55F4500A417BA /* KSPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverView.h; sourceTree = "<group>"; };
+		CCFE273315F55F4500A417BA /* KSPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPopoverView.m; sourceTree = "<group>"; };
+		CCFE273415F55F4500A417BA /* KSPopoverViewButtonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverViewButtonBase.h; sourceTree = "<group>"; };
+		CCFE273515F55F4500A417BA /* KSPopoverViewButtonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPopoverViewButtonBase.m; sourceTree = "<group>"; };
+		CCFE273615F55F4500A417BA /* KSPopoverViewButtonLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverViewButtonLabel.h; sourceTree = "<group>"; };
+		CCFE273715F55F4500A417BA /* KSPopoverViewButtonLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPopoverViewButtonLabel.m; sourceTree = "<group>"; };
+		CCFE273815F55F4500A417BA /* KSPopoverViewButtonOnOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverViewButtonOnOff.h; sourceTree = "<group>"; };
+		CCFE273915F55F4500A417BA /* KSPopoverViewButtonOnOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPopoverViewButtonOnOff.m; sourceTree = "<group>"; };
+		CCFE273A15F55F4500A417BA /* KSPopoverViewParentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverViewParentButton.h; sourceTree = "<group>"; };
+		CCFE273B15F55F4500A417BA /* KSPopoverViewParentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPopoverViewParentButton.m; sourceTree = "<group>"; };
+		CCFE273C15F55F4500A417BA /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
+		CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -374,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				CC8F716415DB2F8A0099FD55 /* SearchWebView.js */,
+				CCFE272F15F55F4500A417BA /* KSPopoverView */,
 				CC8F712015DB112E0099FD55 /* MFSideMenu */,
 				7E8B6BD815D4460600EE70B5 /* ZipArchive */,
 				7E8B6BD715D445F700EE70B5 /* TouchXML */,
@@ -503,6 +525,27 @@
 			name = MFSideMenu;
 			sourceTree = "<group>";
 		};
+		CCFE272F15F55F4500A417BA /* KSPopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				CCFE273015F55F4500A417BA /* KSCGUtils.h */,
+				CCFE273115F55F4500A417BA /* KSCGUtils.m */,
+				CCFE273215F55F4500A417BA /* KSPopoverView.h */,
+				CCFE273315F55F4500A417BA /* KSPopoverView.m */,
+				CCFE273415F55F4500A417BA /* KSPopoverViewButtonBase.h */,
+				CCFE273515F55F4500A417BA /* KSPopoverViewButtonBase.m */,
+				CCFE273615F55F4500A417BA /* KSPopoverViewButtonLabel.h */,
+				CCFE273715F55F4500A417BA /* KSPopoverViewButtonLabel.m */,
+				CCFE273815F55F4500A417BA /* KSPopoverViewButtonOnOff.h */,
+				CCFE273915F55F4500A417BA /* KSPopoverViewButtonOnOff.m */,
+				CCFE273A15F55F4500A417BA /* KSPopoverViewParentButton.h */,
+				CCFE273B15F55F4500A417BA /* KSPopoverViewParentButton.m */,
+				CCFE273C15F55F4500A417BA /* UIColor-Expanded.h */,
+				CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */,
+			);
+			path = KSPopoverView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -616,6 +659,13 @@
 				CC00188F15EEBCAA00B81F5C /* MainViewController.m in Sources */,
 				CC7DE90815F194F900220134 /* MFSideMenuManager.m in Sources */,
 				CC7DE90915F194F900220134 /* UIViewController+MFSideMenu.m in Sources */,
+				CCFE273E15F55F4500A417BA /* KSCGUtils.m in Sources */,
+				CCFE273F15F55F4500A417BA /* KSPopoverView.m in Sources */,
+				CCFE274015F55F4500A417BA /* KSPopoverViewButtonBase.m in Sources */,
+				CCFE274115F55F4500A417BA /* KSPopoverViewButtonLabel.m in Sources */,
+				CCFE274215F55F4500A417BA /* KSPopoverViewButtonOnOff.m in Sources */,
+				CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */,
+				CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

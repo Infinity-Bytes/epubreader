@@ -54,9 +54,8 @@
     SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
     [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
     
-     
-
-   
+     mainView.title = @"Epub Reader";
+    
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
     self.window.rootViewController = navigationController;

@@ -8,24 +8,27 @@
 
 #import "EPubViewController.h"
 #import "ChapterWebDelegate.h"
+#import "ChapterListViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Chapter.h"
-#import "FontView.h"
-#import "MFSideMenu.h"
-#import "SliderViewController.h"
+#import "SearchResultsViewController.h"
+#import "SearchResult.h"
+#import "UIWebView+SearchWebView.h"
+
+
+@interface EPubViewController ()
+
+@end
 
 @implementation EPubViewController
 
 @synthesize epubDelegate;
-@synthesize sliderDelegate;
 @synthesize webView;
+@synthesize pageSlider;
+@synthesize pageLabel;
 @synthesize chapterListButton;
-@synthesize fontListButton;
 @synthesize spineArray;
 @synthesize toolbar;
-@synthesize sliderView;
-@synthesize btnSave;
-int count = 0;
 
 
 
@@ -35,12 +38,11 @@ int count = 0;
     [currentFontText release];
     
     [webView release];
+    [pageSlider release];
+    [pageLabel release];
     [chapterListButton release];
-    [fontListButton release];
     [spineArray release];
     [toolbar release];
-    [sliderView release];
-    [btnSave release];
 
        [super dealloc];
 }
@@ -50,9 +52,6 @@ int count = 0;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
-        
-                
-        
     }
     return self;
 }
@@ -64,28 +63,8 @@ int count = 0;
     [webView setDelegate:self];
     
     webView.opaque = NO;
-
-      
     
 
-
-    UIImage *image = [UIImage imageNamed:@"font_image.jpeg"];
-	_menu = [[KSPopoverView alloc] initWithType:KSPopoverTypeOnOffLabel
-										  image:image
-										  point:CGPointMake(688.0f, 828.0f)];
-	_menu.delegate = self;
-	_menu.position = KSPopoverPositionTopCenter;
-    _menu.offset = 50;
-	//_menu.debug = YES;
-	[self.view addSubview:_menu];
-    
-	[_menu addButtonWithTitle:@"Helvetica"];
-	[_menu addButtonWithTitle:@"Arial"];
-	[_menu addButtonWithTitle:@"Times New Roman"];
-	[_menu addButtonWithTitle:@"Palatino"];
-
-
-    
     
 	UIScrollView* sv = nil;
 	for (UIView* v in  webView.subviews) {
@@ -107,8 +86,6 @@ int count = 0;
 	
 	UISwipeGestureRecognizer* leftSwipeRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPrevPage)] autorelease];
 	[leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [leftSwipeRecognizer setNumberOfTouchesRequired: 1];
-
     
     UIPinchGestureRecognizer *pinchRecognizer =
     [[UIPinchGestureRecognizer alloc]
@@ -124,37 +101,13 @@ int count = 0;
     
     [epubDelegate obtainEPub : [[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"vhugo" ofType:@"epub"]] path]];
     
-        
-    slider = [[SliderViewController alloc] initWithNibName:@"SliderViewController" bundle:nil];
-    [slider setSliderViewDelegate:self];
     
-    [ sliderView addSubview:[slider view]];
+<<<<<<< HEAD
 
-   
-    [[slider pageLabel ] setAlpha:0];
-    [[slider pageSlider ] setAlpha:0];
-    
-}
-
-#pragma mark -
-- (void)popoverView:(KSPopoverView *)view selectedButtonIndex:(NSInteger)buttonIndex
-           withInfo:(NSDictionary *)info {
-    NSLog(@"Pushed %dth button. info:%@", buttonIndex, info);
-	KSPopoverViewButtonBase *button = [view labelAtIndex:buttonIndex];
-    
-    [fontView setFontName:currentFontText];
-    [fontView setFontSize:currentTextSize];
-    
-    [self changeFont:button.text];
-        
-    [button release];
+    searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
+	//searchResViewController.delegate = self;
     
 
-}
-
--(IBAction)showChapterList:(id)sender{
-    NSLog(@"Show Chapter List");
-    [self toggleSideMenuPressed:nil];
 }
 
 - (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
@@ -198,38 +151,15 @@ int count = 0;
 		}
     }
     
-    if(UIGestureRecognizerStateEnded == [sender state]){
-        // do something
-        
-        [self updatePagination];
-    }
+
     
+=======
+    [[self pageLabel ] setAlpha:0];
+    [[self pageSlider ] setAlpha:0];
+>>>>>>> origin/develop
     
 }
 
-- (IBAction) fontClicked:(id)sender{
-    
-      
-	if (fontPopover == nil) {
-		
-		if (fontView == nil) {
-			fontView = [[FontView alloc] initWithNibName:@"FontView" bundle:nil];
-            [fontView setEpubViewController:self];
-		}
-		
-		fontPopover = [[UIPopoverController alloc] initWithContentViewController:fontView];
-		[fontPopover setPopoverContentSize:CGSizeMake(200, 200)]; 
-	}
-	
-	if (![fontPopover isPopoverVisible]) {
-        
-		[fontView setFontName:currentFontText];
-		[fontView setFontSize:currentTextSize];
-		[fontView resetButtons];
-		
-		[fontPopover presentPopoverFromBarButtonItem:fontListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	}
-}
 
 
 -(void)changeFontSize:(int)fontSize{
@@ -238,21 +168,13 @@ int count = 0;
 	[self saveConfHTML];
 }
 
--(void)changeFont:(NSString*)fontName{
-	
-	currentFontText = fontName;
-	[self updatePagination];
-	[self saveConfHTML];
-    
-	NSLog(@"la actual fuente %@",currentFontText);
-}
-
 
 
 - (void)viewDidUnload
 {
     [self setWebView:nil];
-    
+    [self setPageSlider:nil];
+    [self setPageLabel:nil];
     [super viewDidUnload];
 
 }
@@ -296,11 +218,8 @@ int count = 0;
 }
 
 - (IBAction) showChapterIndex:(id)sender{
-    
-    /*
 	if(chaptersPopover==nil){
 		
-        
         ChapterListViewController* chapterListView = [[ChapterListViewController alloc] initWithNibName:@"ChapterListViewController" bundle:[NSBundle mainBundle]];
         [chapterListView setSpineArrayManagerDelegate:self];
 		chaptersPopover = [[UIPopoverController alloc] initWithContentViewController:chapterListView];
@@ -312,7 +231,7 @@ int count = 0;
 	}else{
 		[chaptersPopover presentPopoverFromBarButtonItem:chapterListButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	}
-    */
+    
 
 }
 
@@ -342,20 +261,26 @@ int count = 0;
     
 	if(chapter.chapterIndex + 1 < [ [self spineArray] count])
         [[ [self spineArray] objectAtIndex:chapter.chapterIndex+1] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
+<<<<<<< HEAD
+	
+    NSLog(@"updateSlider");        
+  // [self updateSlider];
+=======
     else{
        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:0.1f];
-        [[slider pageSlider] setAlpha:1];
-        [[slider pageLabel] setAlpha:1];
+        [[self pageSlider] setAlpha:1];
+        [[self pageLabel] setAlpha:1];
         [UIView commitAnimations];
         
         
         
                 
-        [slider updateSlider];
+        [self updateSlider];
     }
+>>>>>>> origin/develop
 }
 
 - (void) loadSpine:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
@@ -371,19 +296,22 @@ int count = 0;
 	currentSpineIndex = spineIndex;
     
     if(!paginating)
-        [slider updateSlider];
+        [self updateSlider];
+<<<<<<< HEAD
+=======
     else{
         
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:0.1f];
-        [[slider pageSlider] setAlpha:0];
-        [[slider pageLabel] setAlpha:0];
+        [[self pageSlider] setAlpha:0];
+        [[self pageLabel] setAlpha:0];
         [UIView commitAnimations];
 
     }
     
    
+>>>>>>> origin/develop
     
 }
 
@@ -400,8 +328,6 @@ int count = 0;
         [[ [self spineArray] objectAtIndex:0] loadChapterWithWindowSize:webView.bounds fontPercentSize:currentTextSize fontFamily:currentFontText];
     }
    
-    NSLog(@"spineArrayIndex = %d", currentSpineIndex);
-
   
 }
 
@@ -473,7 +399,7 @@ int count = 0;
 	[webView stringByEvaluatingJavaScriptFromString:goTo];
     
     if(!paginating)
-        [slider updateSlider];
+        [self updateSlider];
     
 	
 	webView.hidden = NO;
@@ -563,7 +489,7 @@ int count = 0;
     
     switch (self.interfaceOrientation) {
         case 4:
-            [self makeTransitionAnimation:type withOrientation: @"fromTop"];
+            [self makeTransitionAnimation:type withOrientation: @"fromUp"];
             break;
         case 3:
             [self makeTransitionAnimation:type withOrientation: @"fromDown"];
@@ -589,13 +515,57 @@ int count = 0;
     [transition setDuration:0.5f];
     [transition setType:type];
     [transition setSubtype: subtype];
+<<<<<<< HEAD
+    [webView.layer addAnimation:transition forKey:@"pageCurlAnimation"];
+=======
     [[[self webView]layer] addAnimation:transition forKey:@"pageCurlAnimation"];
+>>>>>>> origin/develop
     
    
 
 }
 
+-(void) updateSlider{
+    
+    if(totalPagesCount > [self getGlobalPageCount]){
+        [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[self getGlobalPageCount], totalPagesCount]];
+		[pageSlider setValue:(float)100*(float)[self getGlobalPageCount]/(float)totalPagesCount animated:YES];
+    }
+}
 
+- (IBAction) slidingStarted:(id)sender{
+    int targetPage = ((pageSlider.value/(float)100)*(float)totalPagesCount);
+    
+    if (targetPage==0)
+        targetPage++;
+    
+	[pageLabel setText:[NSString stringWithFormat:@"%d/%d", targetPage, totalPagesCount]];
+
+}
+
+
+
+
+- (IBAction) slidingEnded:(id)sender{
+    int targetPage = (int)((pageSlider.value/(float)100)*(float)totalPagesCount);
+    int pageSum = 0;
+	int chapterIndex = 0;
+	int pageIndex = 0;
+    
+    if (targetPage==0)
+        targetPage++;
+    
+    for(chapterIndex=0; chapterIndex<[[self spineArray] count]; chapterIndex++){
+        
+        pageSum+=[[[self spineArray] objectAtIndex:chapterIndex] pageCount];
+        if(pageSum>=targetPage){
+            pageIndex = [[[self spineArray] objectAtIndex:chapterIndex] pageCount] - 1 - pageSum + targetPage;
+			break;
+        }
+    }
+    
+    [self loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
+}
 
 - (void) loadPage:(int)spineIndex atPageIndex:(int)pageIndex highlightSearchResult:(SearchResult*)theResult{
 	
@@ -628,26 +598,5 @@ int count = 0;
     
     searching = value;
 }
-
--(EPubViewController*)getSelf{
-    
-    return self;
-}
-
--(BOOL)getPaginating{
-    
-    return paginating;
-}
-
--(int)getCurrentSpineIndex{
-    
-    return currentSpineIndex;
-}
-
--(int)getTotalPagesCount{
-    
-    return totalPagesCount;
-}
-
 
 @end

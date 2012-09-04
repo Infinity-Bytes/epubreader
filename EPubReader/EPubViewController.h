@@ -15,10 +15,11 @@
 #import "ISpineArrayManagerDelegate.h"
 #import "ISliderViewController.h"
 #import "SliderViewController.h"
+#import "KSPopoverView/KSPopoverView.h"
 
 @class FontView;
 
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate, ISliderViewController>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate, ISliderViewController, KSPopoverViewDelegate>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;
@@ -44,6 +45,8 @@
     SearchResultsViewController* searchResViewController;
     
     SliderViewController *slider;
+    
+    KSPopoverView *_menu;
   
 
     }
