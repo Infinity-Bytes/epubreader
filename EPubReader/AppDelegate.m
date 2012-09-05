@@ -13,6 +13,7 @@
 #import "MFSideMenuManager.h"
 #import "MFSideMenu.h"
 #import "MainViewController.h"
+#import "SearchResultsViewController.h"
 
 @implementation AppDelegate
 
@@ -54,11 +55,15 @@
     SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
     [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
     
+    [epubViewController setSpineArray:[epubService getSpineArray]];
+    
      mainView.title = @"Epub Reader";
     
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
     self.window.rootViewController = navigationController;
+    
+    
      [[mainView view] addSubview:[epubViewController view]];
     
     [[self window] makeKeyAndVisible];
@@ -68,10 +73,16 @@
     [MFSideMenuManager configureWithNavigationController:navigationController
                                       sideMenuController:sideMenuViewController];
     
+    SearchResultsViewController *searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
+	
+  [searchResViewController setSpineArrayManagerDelegate:epubViewController];
+    [epubViewController setSearchResViewController:searchResViewController];
 
-  
- 
     
+  
+    [mainView release];
+    [epubService release];
+    [epubViewController release];
     [sideMenuViewController release];
     [navigationController release];
 

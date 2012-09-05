@@ -173,6 +173,7 @@
 		CC8C981615DC513800E283A1 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		CC8C981715DC513800E283A1 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		CC8C981A15DC602F00E283A1 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		CC8D564415F6BE88000A4B40 /* IMainViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMainViewDelegate.h; sourceTree = "<group>"; };
 		CC8F712215DB114C0099FD55 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
 		CC8F712315DB114C0099FD55 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		CC8F712415DB114C0099FD55 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
@@ -505,6 +506,7 @@
 				7E90C5C815D461AC00E99ED8 /* IChapterDelegate.h */,
 				CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */,
 				CC8819D615E708C60025D3C9 /* ISliderViewController.h */,
+				CC8D564415F6BE88000A4B40 /* IMainViewDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

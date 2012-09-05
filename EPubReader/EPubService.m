@@ -95,12 +95,14 @@
 		CXMLDocument* manifestFile = [[[CXMLDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath:manifestFilePath] options:0 error:nil] autorelease];
 		CXMLNode* opfPath = [manifestFile nodeForXPath:@"//@full-path[1]" error:nil];
         //		NSLog(@"%@", [NSString stringWithFormat:@"%@/UnzippedEpub/%@", [self applicationDocumentsDirectory], [opfPath stringValue]]);
+        [fileManager release];
 		return [NSString stringWithFormat:@"%@/UnzippedEpub/%@", [self applicationDocumentsDirectory], [opfPath stringValue]];
 	} else {
 		NSLog(@"ERROR: ePub not Valid");
+        [fileManager release];
 		return nil;
 	}
-	[fileManager release];
+	
 }
 
 - (void) parseOPF:(NSString*)opfPath{
@@ -108,7 +110,7 @@
     
 	NSArray* itemsArray = [opfFile nodesForXPath:@"//opf:item" namespaceMappings:[NSDictionary dictionaryWithObject:@"http://www.idpf.org/2007/opf" forKey:@"opf"] error:nil];
     
-    NSString* ncxFileName;
+    NSString* ncxFileName=nil;
 	
     NSMutableDictionary* itemDictionary = [[NSMutableDictionary alloc] init];
 	for (CXMLElement* element in itemsArray) {

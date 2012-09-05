@@ -28,8 +28,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+     [self setupSideMenuBarButtonItem];
     
-    [self setupSideMenuBarButtonItem];
+
+    
 }
 
 - (void)viewDidUnload

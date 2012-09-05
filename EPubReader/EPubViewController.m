@@ -25,6 +25,7 @@
 @synthesize toolbar;
 @synthesize sliderView;
 @synthesize btnSave;
+@synthesize searchResViewController;
 int count = 0;
 
 
@@ -41,6 +42,7 @@ int count = 0;
     [toolbar release];
     [sliderView release];
     [btnSave release];
+    [searchResViewController release];
 
        [super dealloc];
 }
@@ -65,8 +67,18 @@ int count = 0;
     
     webView.opaque = NO;
 
-      
+    // Creating the UISearchBar and adding it to the
+	// UINavigationController
     
+    /*
+	UISearchBar *theSearchBar = [[UISearchBar alloc]
+                                 initWithFrame:CGRectMake(0.0f,0.0f,320.0f,0.0f)];
+	[theSearchBar sizeToFit];
+	self.navigationItem.titleView = theSearchBar;
+	self.navigationItem.titleView.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth;
+	[theSearchBar release];
+   */
 
 
     UIImage *image = [UIImage imageNamed:@"font_image.jpeg"];
@@ -134,6 +146,8 @@ int count = 0;
     [[slider pageLabel ] setAlpha:0];
     [[slider pageSlider ] setAlpha:0];
     
+
+    
 }
 
 #pragma mark -
@@ -147,8 +161,7 @@ int count = 0;
     
     [self changeFont:button.text];
         
-    [button release];
-    
+        
 
 }
 
@@ -281,7 +294,7 @@ int count = 0;
      
     [self setSpineArray: tmpArray];
     epubLoaded = YES;
-    
+    [tmpArray release];
     [self loadConfHTML];
     [self updatePagination];
 }
@@ -322,6 +335,7 @@ int count = 0;
 	if(searchResultsPopover==nil){
 		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchResViewController];
 		[searchResultsPopover setPopoverContentSize:CGSizeMake(400, 600)];
+        NSLog(@"searchResView =%d", [[searchResViewController.spineArrayManagerDelegate getCurrentSpineArray] count]);
 	}
 	if (![searchResultsPopover isPopoverVisible]) {
 		[searchResultsPopover presentPopoverFromRect:searchBar.bounds inView:searchBar permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
@@ -446,8 +460,7 @@ int count = 0;
 
    	int totalWidth = [[[self webView] stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollWidth"] intValue];
 	
-	totalWidth = [[[self webView] stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollWidth"] intValue];
-	
+		
 	if ([self webView].scrollView.contentSize.height != [self webView].frame.size.height) {
 		[self loadSpine:currentSpineIndex atPageIndex:currentPageInSpineIndex highlightSearchResult:nil];
 	}else {
