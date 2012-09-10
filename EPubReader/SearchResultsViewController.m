@@ -70,6 +70,7 @@
         UIWebView* webView = [[UIWebView alloc] initWithFrame: [chapterDelegate getCurrentWindowSize]];
         [webView setDelegate:self];
         NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL fileURLWithPath: [chapterDelegate getSpinePath]]];
+        NSLog(@"urlRequest: %@", urlRequest);
         [webView loadRequest:urlRequest];   
     } else {
         if((currentChapterIndex+1)<[[spineArrayManagerDelegate getCurrentSpineArray] count]){

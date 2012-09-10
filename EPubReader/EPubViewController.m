@@ -81,7 +81,7 @@ int count = 0;
    */
 
 
-    UIImage *image = [UIImage imageNamed:@"font_image.jpeg"];
+    UIImage *image = [UIImage imageNamed:@"icono_fuente_m.gif"];
 	_menu = [[KSPopoverView alloc] initWithType:KSPopoverTypeOnOffLabel
 										  image:image
 										  point:CGPointMake(688.0f, 828.0f)];

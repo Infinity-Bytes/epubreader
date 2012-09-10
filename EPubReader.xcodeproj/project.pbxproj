@@ -72,6 +72,9 @@
 		CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273B15F55F4500A417BA /* KSPopoverViewParentButton.m */; };
 		CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */; };
 		CCFECDC315ED9233006C3411 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFECDC215ED9233006C3411 /* MainView.xib */; };
+		CCFF504715FEA3B70034B011 /* icono_fuente_m.gif in Resources */ = {isa = PBXBuildFile; fileRef = CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */; };
+		CCFF504C15FEA7A50034B011 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF504A15FEA7A50034B011 /* HomeViewController.m */; };
+		CCFF504D15FEA7A50034B011 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFF504B15FEA7A50034B011 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +206,11 @@
 		CCFE273C15F55F4500A417BA /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icono_fuente_m.gif; sourceTree = "<group>"; };
+		CCFF504915FEA7A40034B011 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CCFF504A15FEA7A50034B011 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CCFF504B15FEA7A50034B011 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		CCFF504E15FEA8550034B011 /* dracula.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = dracula.epub; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +243,7 @@
 			children = (
 				CC91A27415D5CBDC00AB269F /* hungerGames.epub */,
 				CC9712FF15D5CA61006DAF84 /* justina.epub */,
+				CCFF504E15FEA8550034B011 /* dracula.epub */,
 				CC9712FE15D5CA2E006DAF84 /* justino.epub */,
 				CC9712FC15D5C9C8006DAF84 /* Justine.epub */,
 				7E8B6AD115D436C100EE70B5 /* vhugo.epub */,
@@ -448,6 +457,8 @@
 		7EEE608B15D31AAD00039462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF504B15FEA7A50034B011 /* HomeViewController.xib */,
+				CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */,
 				CCFE272015F5571C00A417BA /* font_image.jpeg */,
 				7EEE60A415D31DAC00039462 /* EPubViewController.xib */,
 				CC96830915D5D93400280420 /* ChapterListViewController.xib */,
@@ -487,6 +498,8 @@
 				CC8819D115E706310025D3C9 /* SliderViewController.m */,
 				CC00188D15EEBCAA00B81F5C /* MainViewController.h */,
 				CC00188E15EEBCAA00B81F5C /* MainViewController.m */,
+				CCFF504915FEA7A40034B011 /* HomeViewController.h */,
+				CCFF504A15FEA7A50034B011 /* HomeViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -614,6 +627,8 @@
 				CC8819D515E707AD0025D3C9 /* SliderViewController.xib in Resources */,
 				CCFECDC315ED9233006C3411 /* MainView.xib in Resources */,
 				CCFE272115F5571C00A417BA /* font_image.jpeg in Resources */,
+				CCFF504715FEA3B70034B011 /* icono_fuente_m.gif in Resources */,
+				CCFF504D15FEA7A50034B011 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +683,7 @@
 				CCFE274215F55F4500A417BA /* KSPopoverViewButtonOnOff.m in Sources */,
 				CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */,
 				CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */,
+				CCFF504C15FEA7A50034B011 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
