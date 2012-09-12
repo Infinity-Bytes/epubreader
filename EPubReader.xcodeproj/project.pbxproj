@@ -757,16 +757,16 @@
 		7EEE603515D317B700039462 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: JESUS CAGIDE ALVARADO (WSU594GJC4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JESUS CAGIDE ALVARADO (WSU594GJC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "309A525C-488B-4020-84F0-8F012369399C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "309A525C-488B-4020-84F0-8F012369399C";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -775,16 +775,16 @@
 		7EEE603615D317B700039462 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: JESUS CAGIDE ALVARADO";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: JESUS CAGIDE ALVARADO";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "66B1E50E-9AF7-4E54-8520-D5928E094475";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "66B1E50E-9AF7-4E54-8520-D5928E094475";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
