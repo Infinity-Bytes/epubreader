@@ -190,7 +190,7 @@ int count = 0;
             return;
         }
         */
-        if(currentTextSize-2>=50){
+        if(currentTextSize-2>=80){
 			currentTextSize-=2;
             NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
                                   currentTextSize];
