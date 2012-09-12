@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7EEE601215D317B700039462"
                BuildableName = "EPubReader.app"
-               BlueprintName = "EPubReader"
-               ReferencedContainer = "container:EPubReader.xcodeproj">
+               BlueprintName = "Editorial Digital"
+               ReferencedContainer = "container:Editorial Digital.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7EEE601215D317B700039462"
             BuildableName = "EPubReader.app"
-            BlueprintName = "EPubReader"
-            ReferencedContainer = "container:EPubReader.xcodeproj">
+            BlueprintName = "Editorial Digital"
+            ReferencedContainer = "container:Editorial Digital.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7EEE601215D317B700039462"
             BuildableName = "EPubReader.app"
-            BlueprintName = "EPubReader"
-            ReferencedContainer = "container:EPubReader.xcodeproj">
+            BlueprintName = "Editorial Digital"
+            ReferencedContainer = "container:Editorial Digital.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,8 +72,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7EEE601215D317B700039462"
             BuildableName = "EPubReader.app"
-            BlueprintName = "EPubReader"
-            ReferencedContainer = "container:EPubReader.xcodeproj">
+            BlueprintName = "Editorial Digital"
+            ReferencedContainer = "container:Editorial Digital.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

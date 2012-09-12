@@ -84,7 +84,7 @@ int count = 0;
     UIImage *image = [UIImage imageNamed:@"icono_fuente_m.gif"];
 	_menu = [[KSPopoverView alloc] initWithType:KSPopoverTypeOnOffLabel
 										  image:image
-										  point:CGPointMake(688.0f, 828.0f)];
+										  point:CGPointMake(688.0f, 930.0f)];
 	_menu.delegate = self;
 	_menu.position = KSPopoverPositionTopCenter;
     _menu.offset = 50;
@@ -190,7 +190,7 @@ int count = 0;
             return;
         }
         */
-        if(currentTextSize-2>=50){
+        if(currentTextSize-2>=80){
 			currentTextSize-=2;
             NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",
                                   currentTextSize];
