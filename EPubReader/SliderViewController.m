@@ -87,7 +87,7 @@
         }
     }
     
-    chapterIndex = chapterIndex >= mayor ? mayor - 1 : chapterIndex;
+    chapterIndex = chapterIndex >= mayor ? mayor : chapterIndex;
     chapterIndex = chapterIndex < 0 ? 0 : chapterIndex;
     
     [[self sliderViewDelegate]  loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];

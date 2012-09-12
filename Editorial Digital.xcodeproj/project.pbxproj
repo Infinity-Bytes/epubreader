@@ -139,14 +139,14 @@
 		7E90C5D015D4640B00E99ED8 /* UIWebView+SearchWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+SearchWebView.h"; sourceTree = "<group>"; };
 		7E90C5D115D4640B00E99ED8 /* UIWebView+SearchWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+SearchWebView.m"; sourceTree = "<group>"; };
 		7E90C5DE15D4773400E99ED8 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
-		7EEE601315D317B700039462 /* EPubReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPubReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EEE601315D317B700039462 /* Editorial Digital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Editorial Digital.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEE601715D317B700039462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7EEE601915D317B700039462 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7EEE601B15D317B700039462 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7EEE601F15D317B700039462 /* EPubReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EPubReader-Info.plist"; sourceTree = "<group>"; };
+		7EEE601F15D317B700039462 /* Editorial Digital-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Editorial Digital-Info.plist"; sourceTree = "<group>"; };
 		7EEE602115D317B700039462 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7EEE602315D317B700039462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7EEE602515D317B700039462 /* EPubReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EPubReader-Prefix.pch"; sourceTree = "<group>"; };
+		7EEE602515D317B700039462 /* Editorial Digital-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Editorial Digital-Prefix.pch"; sourceTree = "<group>"; };
 		7EEE602715D317B700039462 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7EEE607715D3191200039462 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7EEE607B15D3196500039462 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -358,7 +358,7 @@
 		7EEE601415D317B700039462 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7EEE601315D317B700039462 /* EPubReader.app */,
+				7EEE601315D317B700039462 /* Editorial Digital.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,10 +401,10 @@
 				F1E72ADE16010CE500D3EC4F /* Default-Portrait~ipad.png */,
 				CC83DE5C15DC84E000509A29 /* Icon@2x.png */,
 				CC83DE5A15DC84DD00509A29 /* Icon.png */,
-				7EEE601F15D317B700039462 /* EPubReader-Info.plist */,
+				7EEE601F15D317B700039462 /* Editorial Digital-Info.plist */,
 				7EEE602015D317B700039462 /* InfoPlist.strings */,
 				7EEE602315D317B700039462 /* main.m */,
-				7EEE602515D317B700039462 /* EPubReader-Prefix.pch */,
+				7EEE602515D317B700039462 /* Editorial Digital-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -570,9 +570,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7EEE601215D317B700039462 /* EPubReader */ = {
+		7EEE601215D317B700039462 /* Editorial Digital */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "EPubReader" */;
+			buildConfigurationList = 7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "Editorial Digital" */;
 			buildPhases = (
 				7EEE600F15D317B700039462 /* Sources */,
 				7EEE601015D317B700039462 /* Frameworks */,
@@ -582,9 +582,9 @@
 			);
 			dependencies = (
 			);
-			name = EPubReader;
+			name = "Editorial Digital";
 			productName = EPubReader;
-			productReference = 7EEE601315D317B700039462 /* EPubReader.app */;
+			productReference = 7EEE601315D317B700039462 /* Editorial Digital.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -596,7 +596,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "David Díaz";
 			};
-			buildConfigurationList = 7EEE600D15D317B700039462 /* Build configuration list for PBXProject "EPubReader" */;
+			buildConfigurationList = 7EEE600D15D317B700039462 /* Build configuration list for PBXProject "Editorial Digital" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -608,7 +608,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7EEE601215D317B700039462 /* EPubReader */,
+				7EEE601215D317B700039462 /* Editorial Digital */,
 			);
 		};
 /* End PBXProject section */
@@ -768,11 +768,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
+				GCC_PREFIX_HEADER = "EPubReader/Editorial Digital-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
+				INFOPLIST_FILE = "EPubReader/Editorial Digital-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Editorial Digital";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -786,11 +786,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EPubReader/EPubReader-Prefix.pch";
+				GCC_PREFIX_HEADER = "EPubReader/Editorial Digital-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "EPubReader/EPubReader-Info.plist";
+				INFOPLIST_FILE = "EPubReader/Editorial Digital-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Editorial Digital";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -801,7 +801,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7EEE600D15D317B700039462 /* Build configuration list for PBXProject "EPubReader" */ = {
+		7EEE600D15D317B700039462 /* Build configuration list for PBXProject "Editorial Digital" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EEE603215D317B700039462 /* Debug */,
@@ -810,7 +810,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "EPubReader" */ = {
+		7EEE603415D317B700039462 /* Build configuration list for PBXNativeTarget "Editorial Digital" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EEE603515D317B700039462 /* Debug */,
