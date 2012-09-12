@@ -57,7 +57,7 @@
     
     [epubViewController setSpineArray:[epubService getSpineArray]];
     
-     mainView.title = @"Epub Reader";
+     mainView.title = @"Editorial Digital - Demo";
     
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
