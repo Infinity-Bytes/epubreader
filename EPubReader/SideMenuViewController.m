@@ -10,11 +10,12 @@
 
 @implementation SideMenuViewController
 
-@synthesize spineArrayManagerDelegate, spineArray;
+@synthesize spineArrayManagerDelegate, spineArray, currentView;
 
 -(void)dealloc{
     
     spineArray = nil;
+    [currentView release];
     [super dealloc];
 }
 - (void)viewDidLoad
@@ -62,7 +63,11 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
+    
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
@@ -80,7 +85,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-
+   
+    
     [[self spineArrayManagerDelegate] loadSpine:[indexPath row] atPageIndex:0 highlightSearchResult:nil];
 
      [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;

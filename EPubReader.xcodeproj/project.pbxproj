@@ -75,6 +75,10 @@
 		CCFF504715FEA3B70034B011 /* icono_fuente_m.gif in Resources */ = {isa = PBXBuildFile; fileRef = CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */; };
 		CCFF504C15FEA7A50034B011 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF504A15FEA7A50034B011 /* HomeViewController.m */; };
 		CCFF504D15FEA7A50034B011 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFF504B15FEA7A50034B011 /* HomeViewController.xib */; };
+		CCFF506815FECD7A0034B011 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF506715FECD7A0034B011 /* iCarousel.m */; };
+		CCFF507415FED56E0034B011 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFF507215FED56E0034B011 /* background.png */; };
+		CCFF507515FED56E0034B011 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFF507315FED56E0034B011 /* page.png */; };
+		CCFF508215FFFC2E0034B011 /* vhugo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CCFF508115FFFC2E0034B011 /* vhugo.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,7 +194,7 @@
 		CC9712FC15D5C9C8006DAF84 /* Justine.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Justine.epub; sourceTree = "<group>"; };
 		CC9712FE15D5CA2E006DAF84 /* justino.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justino.epub; sourceTree = "<group>"; };
 		CC9712FF15D5CA61006DAF84 /* justina.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = justina.epub; sourceTree = "<group>"; };
-		CCFE272015F5571C00A417BA /* font_image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = font_image.jpeg; sourceTree = "<group>"; };
+		CCFE272015F5571C00A417BA /* font_image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = font_image.jpeg; path = ../font_image.jpeg; sourceTree = "<group>"; };
 		CCFE273015F55F4500A417BA /* KSCGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCGUtils.h; sourceTree = "<group>"; };
 		CCFE273115F55F4500A417BA /* KSCGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCGUtils.m; sourceTree = "<group>"; };
 		CCFE273215F55F4500A417BA /* KSPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPopoverView.h; sourceTree = "<group>"; };
@@ -206,11 +210,16 @@
 		CCFE273C15F55F4500A417BA /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		CCFE273D15F55F4500A417BA /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		CCFECDC215ED9233006C3411 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icono_fuente_m.gif; sourceTree = "<group>"; };
+		CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icono_fuente_m.gif; path = ../icono_fuente_m.gif; sourceTree = "<group>"; };
 		CCFF504915FEA7A40034B011 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CCFF504A15FEA7A50034B011 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CCFF504B15FEA7A50034B011 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CCFF504E15FEA8550034B011 /* dracula.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = dracula.epub; sourceTree = "<group>"; };
+		CCFF506615FECD7A0034B011 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		CCFF506715FECD7A0034B011 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		CCFF507215FED56E0034B011 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		CCFF507315FED56E0034B011 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		CCFF508115FFFC2E0034B011 /* vhugo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vhugo.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +250,7 @@
 		7E8B6AD315D436C700EE70B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF508115FFFC2E0034B011 /* vhugo.jpeg */,
 				CC91A27415D5CBDC00AB269F /* hungerGames.epub */,
 				CC9712FF15D5CA61006DAF84 /* justina.epub */,
 				CCFF504E15FEA8550034B011 /* dracula.epub */,
@@ -404,6 +414,7 @@
 		7EEE604B15D318B700039462 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF506515FECD7A0034B011 /* iCarousel */,
 				CC8F716415DB2F8A0099FD55 /* SearchWebView.js */,
 				CCFE272F15F55F4500A417BA /* KSPopoverView */,
 				CC8F712015DB112E0099FD55 /* MFSideMenu */,
@@ -458,8 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				CCFF504B15FEA7A50034B011 /* HomeViewController.xib */,
-				CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */,
-				CCFE272015F5571C00A417BA /* font_image.jpeg */,
 				7EEE60A415D31DAC00039462 /* EPubViewController.xib */,
 				CC96830915D5D93400280420 /* ChapterListViewController.xib */,
 				CC8F716715DB30110099FD55 /* SearchResultsViewController.xib */,
@@ -561,6 +570,19 @@
 			path = KSPopoverView;
 			sourceTree = "<group>";
 		};
+		CCFF506515FECD7A0034B011 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				CCFF504615FEA3B70034B011 /* icono_fuente_m.gif */,
+				CCFE272015F5571C00A417BA /* font_image.jpeg */,
+				CCFF506615FECD7A0034B011 /* iCarousel.h */,
+				CCFF507215FED56E0034B011 /* background.png */,
+				CCFF507315FED56E0034B011 /* page.png */,
+				CCFF506715FECD7A0034B011 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,6 +651,9 @@
 				CCFE272115F5571C00A417BA /* font_image.jpeg in Resources */,
 				CCFF504715FEA3B70034B011 /* icono_fuente_m.gif in Resources */,
 				CCFF504D15FEA7A50034B011 /* HomeViewController.xib in Resources */,
+				CCFF507415FED56E0034B011 /* background.png in Resources */,
+				CCFF507515FED56E0034B011 /* page.png in Resources */,
+				CCFF508215FFFC2E0034B011 /* vhugo.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +709,7 @@
 				CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */,
 				CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */,
 				CCFF504C15FEA7A50034B011 /* HomeViewController.m in Sources */,
+				CCFF506815FECD7A0034B011 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

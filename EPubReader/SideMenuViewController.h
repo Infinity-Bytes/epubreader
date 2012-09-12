@@ -12,7 +12,8 @@
  
 }
 
-@property(nonatomic, retain)   NSArray* spineArray;
+@property(nonatomic, retain) NSString *currentView;
+@property(nonatomic, retain) NSArray* spineArray;
 @property(nonatomic, assign) id<ISpineArrayManagerDelegate> spineArrayManagerDelegate;
 
 - (id) initWithSpineArray:(NSArray*)array;

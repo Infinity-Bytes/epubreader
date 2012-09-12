@@ -14,7 +14,7 @@
 #import "MFSideMenu.h"
 #import "MainViewController.h"
 #import "SearchResultsViewController.h"
-
+#import "HomeViewController.h"
 @implementation AppDelegate
 
 - (void)dealloc
@@ -31,6 +31,7 @@
     
     MainViewController *mainView = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
     
+    HomeViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     masterController = [[MasterController alloc] init];
     
     EPubService* epubService = [[EPubService alloc]init];
@@ -64,7 +65,8 @@
     self.window.rootViewController = navigationController;
     
     
-     [[mainView view] addSubview:[epubViewController view]];
+     [[mainView view] addSubview:[homeViewController view]];
+   
     
     [[self window] makeKeyAndVisible];
     
