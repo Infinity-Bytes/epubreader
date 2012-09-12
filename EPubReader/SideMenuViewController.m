@@ -45,7 +45,16 @@
 #pragma mark - UITableViewDataSource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Capítulos";
+    
+    if(currentView == @"homeView"){
+        return @"Opciones";
+    }else{
+        
+        return @"Capítulos";
+        
+    }
+
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -55,8 +64,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self spineArray]  count];
+    if(currentView == @"homeView"){
+        return 5;
+    }else{
+        return [[self spineArray]  count];
 
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,15 +82,32 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    if(currentView == @"Reader")
+    {
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        
+        
+        cell.textLabel.numberOfLines = 2;
+        cell.textLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.text = [[self.spineArray objectAtIndex:[indexPath row]] title];
+    }else{
+        
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        
+        
+        cell.textLabel.numberOfLines = 2;
+        cell.textLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.text = @"opcion ";
+        
     }
     
     
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.text = [[self.spineArray objectAtIndex:[indexPath row]] title];
     return cell;
 }
 
@@ -86,11 +117,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
    
-    
-    [[self spineArrayManagerDelegate] loadSpine:[indexPath row] atPageIndex:0 highlightSearchResult:nil];
+    if(currentView == @"homeView" || currentView == nil)
+    {
+       
 
-     [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    }
     
+    if(currentView == @"Reader")
+    {
+        [[self spineArrayManagerDelegate] loadSpine:[indexPath row] atPageIndex:0 highlightSearchResult:nil];
+        [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    }
+    
+        
 
     
     

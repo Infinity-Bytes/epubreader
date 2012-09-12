@@ -55,6 +55,7 @@
 
     SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
     [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
+    [sideMenuViewController setCurrentView:@"homeView"];
     
     [epubViewController setSpineArray:[epubService getSpineArray]];
     
@@ -64,7 +65,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
     self.window.rootViewController = navigationController;
     
-    
+
      [[mainView view] addSubview:[homeViewController view]];
    
     
