@@ -74,18 +74,21 @@
     int pageSum = 0;
 	int chapterIndex = 0;
 	int pageIndex = 0;
+    int mayor = [[[self sliderViewDelegate] getCurrentSpineArray] count];
     
     if (targetPage==0)
         targetPage++;
     
-    for(chapterIndex=0; chapterIndex<[[[self sliderViewDelegate] getCurrentSpineArray] count]; chapterIndex++){
-        
+    for(chapterIndex=0; chapterIndex < mayor; chapterIndex++){
         pageSum+=[[[[self sliderViewDelegate] getCurrentSpineArray]  objectAtIndex:chapterIndex] pageCount];
         if(pageSum>=targetPage){
             pageIndex = [[[[self sliderViewDelegate] getCurrentSpineArray]  objectAtIndex:chapterIndex] pageCount] - 1 - pageSum + targetPage;
 			break;
         }
     }
+    
+    chapterIndex = chapterIndex >= mayor ? mayor - 1 : chapterIndex;
+    chapterIndex = chapterIndex < 0 ? 0 : chapterIndex;
     
     [[self sliderViewDelegate]  loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
 }
