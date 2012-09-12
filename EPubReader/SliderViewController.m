@@ -50,7 +50,7 @@
 
 -(void) updateSlider{
     
-    if([[self sliderViewDelegate] getTotalPagesCount] > [[self sliderViewDelegate] getGlobalPageCount]){
+    if([[self sliderViewDelegate] getTotalPagesCount] >= [[self sliderViewDelegate] getGlobalPageCount]){
         [pageLabel setText:[NSString stringWithFormat:@"%d of %d",[sliderViewDelegate getGlobalPageCount], [[self sliderViewDelegate] getTotalPagesCount] ]];
 		[pageSlider setValue:(float)100*(float)[[self sliderViewDelegate] getGlobalPageCount]/(float) [[self sliderViewDelegate] getTotalPagesCount]  animated:YES];
     }
@@ -88,7 +88,7 @@
     }
     
     chapterIndex = chapterIndex >= mayor ? mayor : chapterIndex;
-    chapterIndex = chapterIndex < 0 ? 0 : chapterIndex;
+    //chapterIndex = chapterIndex < 0 ? 0 : chapterIndex;
     
     [[self sliderViewDelegate]  loadPage:chapterIndex atPageIndex:pageIndex highlightSearchResult:nil];
 }
