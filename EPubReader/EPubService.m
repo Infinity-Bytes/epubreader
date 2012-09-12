@@ -22,13 +22,11 @@
     [self parseEpub];
 }
 
-- (void) parseEpub{
-    
-	if([self unzipAndSaveFileNamed:epubFilePath])
-    {
-        NSString* opfPath = [self parseManifestFile];
-        [self parseOPF:opfPath];
-    }
+- (void) parseEpub
+{
+    [self unzipAndSaveFileNamed:epubFilePath];
+    NSString* opfPath = [self parseManifestFile];
+    [self parseOPF:opfPath];
 }
 
 
@@ -47,15 +45,12 @@
 }
 
 
-- (BOOL)unzipAndSaveFileNamed:(NSString*)fileName{
-	BOOL salida = NO;
-    
+- (void)unzipAndSaveFileNamed: (NSString*)fileName
+{
 	ZipArchive* za = [[ZipArchive alloc] init];
     //	NSLog(@"%@", fileName);
     //	NSLog(@"unzipping %@", epubFilePath);
 	if( [za UnzipOpenFile:epubFilePath]){
-        salida = YES;
-        
 		NSString *strPath=[NSString stringWithFormat:@"%@/UnzippedEpub",[self applicationDocumentsDirectory]];
         //		NSLog(@"%@", strPath);
 		//Delete all the previous files
@@ -82,8 +77,6 @@
 		[za UnzipCloseFile];
 	}
 	[za release];
-    
-    return salida;
 }
 
 - (NSString *)applicationDocumentsDirectory {
