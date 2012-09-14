@@ -25,7 +25,6 @@
 @synthesize toolbar;
 @synthesize sliderView;
 @synthesize btnSave;
-@synthesize searchResViewController;
 int count = 0;
 
 
@@ -42,7 +41,7 @@ int count = 0;
     [toolbar release];
     [sliderView release];
     [btnSave release];
-    [searchResViewController release];
+
 
        [super dealloc];
 }
@@ -329,24 +328,6 @@ int count = 0;
 
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
-    
-	if(searchResultsPopover==nil){
-		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchResViewController];
-		[searchResultsPopover setPopoverContentSize:CGSizeMake(400, 600)];
-        NSLog(@"searchResView =%d", [[searchResViewController.spineArrayManagerDelegate getCurrentSpineArray] count]);
-	}
-	if (![searchResultsPopover isPopoverVisible]) {
-		[searchResultsPopover presentPopoverFromRect:searchBar.bounds inView:searchBar permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	}
-    //	NSLog(@"Searching for %@", [searchBar text]);
-	if(!searching){
-		searching = YES;
-		[searchResViewController searchString:[searchBar text]];
-        [searchBar resignFirstResponder];
-	}
-}
 
 
 - (void) chapterDidFinishLoad:(ChapterWebDelegate*)chapter{
@@ -376,7 +357,7 @@ int count = 0;
     
     self.webView.hidden = YES;
 	
-	self.currentSearchResult = theResult;
+	//self.currentSearchResult = theResult;
     
 	
 	NSURL* url = [NSURL fileURLWithPath:[[[self spineArray] objectAtIndex:spineIndex] spinePath]];
@@ -637,10 +618,6 @@ int count = 0;
     return self.spineArray;
 }
 
--(void) setSearching:(BOOL)value{
-    
-    searching = value;
-}
 
 -(EPubViewController*)getSelf{
     

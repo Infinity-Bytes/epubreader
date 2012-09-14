@@ -19,7 +19,7 @@
 
 @class FontView;
 
-@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate, ISliderViewController, KSPopoverViewDelegate, UISearchBarDelegate>{
+@interface EPubViewController : UIViewController<IWebViewDelegate, IChapterDelegate, UIWebViewDelegate, ISpineArrayManagerDelegate, UISearchBarDelegate, IEPubDelegate, ISliderViewController, KSPopoverViewDelegate>{
     
     int currentSpineIndex;
 	int currentPageInSpineIndex;
@@ -30,20 +30,16 @@
     
     BOOL epubLoaded;
     BOOL paginating;
-    BOOL searching;
+
     
     UIPopoverController* chaptersPopover;
-    UIPopoverController* searchResultsPopover;
     UIPopoverController *fontPopover;
  
     FontView *fontView;
     
     UIBarButtonItem* fontListButton;
     
-    SearchResult* currentSearchResult;
-    
-    SearchResultsViewController* searchResViewController;
-    
+       
     SliderViewController *slider;
     
     KSPopoverView *_menu;
@@ -51,12 +47,12 @@
 
     }
 
-@property(retain, nonatomic) SearchResultsViewController* searchResViewController;
+
 
 @property(retain,nonatomic) id<IEPubDelegate> epubDelegate;
 @property(retain, nonatomic) SliderViewController* sliderDelegate;
 @property(retain,nonatomic) NSArray* spineArray;
-@property (nonatomic, retain) SearchResult* currentSearchResult;
+
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (retain, nonatomic) IBOutlet UIView *sliderView;

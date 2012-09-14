@@ -76,7 +76,7 @@
     SearchResultsViewController *searchResViewController = [[SearchResultsViewController alloc] initWithNibName:@"SearchResultsViewController" bundle:[NSBundle mainBundle]];
 	
   [searchResViewController setSpineArrayManagerDelegate:epubViewController];
-    [epubViewController setSearchResViewController:searchResViewController];
+    [mainView setSearchResViewController:searchResViewController];
 
     
   

@@ -15,6 +15,15 @@
 
 @implementation MainViewController
 
+@synthesize spineArrayDelegate;
+
+-(void)dealloc
+{
+    
+    spineArrayDelegate = nil;
+    [super dealloc];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,11 +37,42 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Buscar" style:UIBarButtonItemStylePlain target:self action:@selector(:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    [anotherButton release];
+    
      [self setupSideMenuBarButtonItem];
     
 
     
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    
+	if(searchResultsPopover==nil){
+		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchResViewController];
+		[searchResultsPopover setPopoverContentSize:CGSizeMake(400, 600)];
+        
+	}
+	if (![searchResultsPopover isPopoverVisible]) {
+		[searchResultsPopover presentPopoverFromRect:searchBar.bounds inView:searchBar permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+    //	NSLog(@"Searching for %@", [searchBar text]);
+	if(!searching){
+		searching = YES;
+		[searchResViewController searchString:[searchBar text]];
+        [searchBar resignFirstResponder];
+        
+    }
+}
+
+-(void) setSearching:(BOOL)value{
+    
+    searching = value;
+}
+
 
 - (void)viewDidUnload
 {
