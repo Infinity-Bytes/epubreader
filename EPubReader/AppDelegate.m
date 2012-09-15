@@ -29,11 +29,17 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
+    masterController = [[MasterController alloc] init];
+
+    
+    [masterController obtainEPub:@"Chapters"];
+    
     MainViewController *mainView = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
     
-    masterController = [[MasterController alloc] init];
-    
+        
     EPubService* epubService = [[EPubService alloc]init];
+    
+
         
     EPubViewController *epubViewController = [[EPubViewController alloc] initWithNibName:@"EPubViewController" bundle:nil];
 
@@ -46,16 +52,9 @@
     
     [masterController setWebViewDelegate:epubViewController];
     
-    
-    
-    
-    [masterController obtainEPub:@"Chapters"];
-    
+     [epubViewController setSpineArray:[epubService getSpineArray]];
 
-    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
-    [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
-    
-    [epubViewController setSpineArray:[epubService getSpineArray]];
+
     
      mainView.title = @"Editorial Digital - Demo";
     
@@ -67,6 +66,10 @@
      [[mainView view] addSubview:[epubViewController view]];
     
     [[self window] makeKeyAndVisible];
+    
+    SideMenuViewController *sideMenuViewController = [[SideMenuViewController alloc] initWithSpineArray:[epubService getSpineArray]];
+    [sideMenuViewController setSpineArrayManagerDelegate:epubViewController];
+    
     
     
     // make sure to display the navigation controller before calling this
