@@ -45,6 +45,8 @@
 		7EEE60A515D31DAC00039462 /* EPubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE60A315D31DAC00039462 /* EPubViewController.m */; };
 		7EEE60A615D31DAC00039462 /* EPubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEE60A415D31DAC00039462 /* EPubViewController.xib */; };
 		CC00188F15EEBCAA00B81F5C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC00188E15EEBCAA00B81F5C /* MainViewController.m */; };
+		CC5C48DE16041BA60009476A /* SearchTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5C48DC16041BA50009476A /* SearchTextViewController.m */; };
+		CC5C48DF16041BA60009476A /* SearchTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5C48DD16041BA50009476A /* SearchTextViewController.xib */; };
 		CC7DE90815F194F900220134 /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7DE90515F194F900220134 /* MFSideMenuManager.m */; };
 		CC7DE90915F194F900220134 /* UIViewController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7DE90715F194F900220134 /* UIViewController+MFSideMenu.m */; };
 		CC7DE90E15F1A70D00220134 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC8F712415DB114C0099FD55 /* menu-icon.png */; };
@@ -158,6 +160,9 @@
 		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
 		CC00188D15EEBCAA00B81F5C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CC00188E15EEBCAA00B81F5C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CC5C48DB16041BA50009476A /* SearchTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextViewController.h; sourceTree = "<group>"; };
+		CC5C48DC16041BA50009476A /* SearchTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextViewController.m; sourceTree = "<group>"; };
+		CC5C48DD16041BA50009476A /* SearchTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTextViewController.xib; sourceTree = "<group>"; };
 		CC7DE90315F194F900220134 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		CC7DE90415F194F900220134 /* MFSideMenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuManager.h; sourceTree = "<group>"; };
 		CC7DE90515F194F900220134 /* MFSideMenuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuManager.m; sourceTree = "<group>"; };
@@ -472,6 +477,9 @@
 				CC84EC6C15DDAADF00EED8F1 /* FontView.xib */,
 				CC8819D415E707AD0025D3C9 /* SliderViewController.xib */,
 				CCFECDC215ED9233006C3411 /* MainView.xib */,
+				CC5C48DB16041BA50009476A /* SearchTextViewController.h */,
+				CC5C48DC16041BA50009476A /* SearchTextViewController.m */,
+				CC5C48DD16041BA50009476A /* SearchTextViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 				F1E72AE116010CE700D3EC4F /* Default-Portrait@2x~ipad.png in Resources */,
 				F1E72AE316010CEC00D3EC4F /* Default-Landscape~ipad.png in Resources */,
 				F1E72AE516010CED00D3EC4F /* Default-Landscape@2x~ipad.png in Resources */,
+				CC5C48DF16041BA60009476A /* SearchTextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +701,7 @@
 				CCFE274315F55F4500A417BA /* KSPopoverViewParentButton.m in Sources */,
 				CCFE274415F55F4500A417BA /* UIColor-Expanded.m in Sources */,
 				CCFF504C15FEA7A50034B011 /* HomeViewController.m in Sources */,
+				CC5C48DE16041BA60009476A /* SearchTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
