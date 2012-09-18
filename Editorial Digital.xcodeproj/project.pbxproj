@@ -477,8 +477,6 @@
 				CC84EC6C15DDAADF00EED8F1 /* FontView.xib */,
 				CC8819D415E707AD0025D3C9 /* SliderViewController.xib */,
 				CCFECDC215ED9233006C3411 /* MainView.xib */,
-				CC5C48DB16041BA50009476A /* SearchTextViewController.h */,
-				CC5C48DC16041BA50009476A /* SearchTextViewController.m */,
 				CC5C48DD16041BA50009476A /* SearchTextViewController.xib */,
 			);
 			name = Views;
@@ -514,6 +512,8 @@
 				CC00188E15EEBCAA00B81F5C /* MainViewController.m */,
 				CCFF504915FEA7A40034B011 /* HomeViewController.h */,
 				CCFF504A15FEA7A50034B011 /* HomeViewController.m */,
+				CC5C48DB16041BA50009476A /* SearchTextViewController.h */,
+				CC5C48DC16041BA50009476A /* SearchTextViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";

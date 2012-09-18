@@ -10,4 +10,6 @@
 
 @interface SearchTextViewController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UIView *tableView;
+
 @end

@@ -63,5 +63,6 @@
 @property(nonatomic, retain)  UIBarButtonItem *btnSave; 
 
 -(void)changeFont:(NSString*)fontName;
+-(IBAction)showSearchResults:(id)sender;
 
 @end

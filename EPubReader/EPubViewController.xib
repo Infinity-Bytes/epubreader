@@ -38,7 +38,7 @@
 					<object class="IBUIWebView" id="451252956">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{0, 111}, {768, 783}}</string>
+						<string key="NSFrame">{{0, 97}, {768, 797}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="145760770"/>
@@ -176,6 +176,35 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">EPubViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="fontClicked:">id</string>
+						<string key="pinchDetected:">UIGestureRecognizer</string>
+						<string key="showChapterIndex:">id</string>
+						<string key="showChapterList:">id</string>
+						<string key="showSearchResults:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="fontClicked:">
+							<string key="name">fontClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="pinchDetected:">
+							<string key="name">pinchDetected:</string>
+							<string key="candidateClassName">UIGestureRecognizer</string>
+						</object>
+						<object class="IBActionInfo" key="showChapterIndex:">
+							<string key="name">showChapterIndex:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showChapterList:">
+							<string key="name">showChapterList:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showSearchResults:">
+							<string key="name">showSearchResults:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="chapterListButton">UIBarButtonItem</string>
 						<string key="fontListButton">UIBarButtonItem</string>

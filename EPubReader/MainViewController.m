@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "UIViewController+MFSideMenu.h"
+#import "SearchResultsViewController.h"
+#import "SearchTextViewController.h"
 
 @interface MainViewController ()
 
@@ -15,12 +17,13 @@
 
 @implementation MainViewController
 
-@synthesize spineArrayDelegate;
+@synthesize spineArrayDelegate, searchResViewController;
 
 -(void)dealloc
 {
     
     spineArrayDelegate = nil;
+    [searchResViewController release];
     [super dealloc];
 }
 
@@ -38,9 +41,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Buscar" style:UIBarButtonItemStylePlain target:self action:@selector(:)];
-    self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithTitle:@"Buscar" style:UIBarButtonItemStylePlain target:self action:@selector(showSearchResults:)];
+    self.navigationItem.rightBarButtonItem = searchButton;
+    _searchButton = searchButton;
+    [searchButton release];
     
      [self setupSideMenuBarButtonItem];
     
@@ -48,24 +52,44 @@
     
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+-(IBAction)showSearchResults:(id)sender
+{
+    SearchTextViewController *searchTextViewController = [[SearchTextViewController new] initWithNibName:@"SearchTextViewController" bundle:nil];
     
+    //[searchTextViewController.tableView addSubview:[searchResViewController view]];
+    searchTextViewController.tableView = [searchResViewController view];
     
-	if(searchResultsPopover==nil){
-		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchResViewController];
+    if(searchResultsPopover==nil){
+		searchResultsPopover = [[UIPopoverController alloc] initWithContentViewController:searchTextViewController];
 		[searchResultsPopover setPopoverContentSize:CGSizeMake(400, 600)];
         
 	}
-	if (![searchResultsPopover isPopoverVisible]) {
-		[searchResultsPopover presentPopoverFromRect:searchBar.bounds inView:searchBar permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+    
+    if (![searchResultsPopover isPopoverVisible]) {
+		[searchResultsPopover presentPopoverFromRect:searchTextViewController.view.bounds inView:[self view]permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [searchTextViewController.tableView addSubview:[searchResViewController view]];
+
 	}
+    
+    
+
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+   
     //	NSLog(@"Searching for %@", [searchBar text]);
 	if(!searching){
 		searching = YES;
-		[searchResViewController searchString:[searchBar text]];
+		
+        //B
+        //[SearchTextViewController.searchResViewController searchString:[searchBar text]];
         [searchBar resignFirstResponder];
         
     }
+
+    
 }
 
 -(void) setSearching:(BOOL)value{

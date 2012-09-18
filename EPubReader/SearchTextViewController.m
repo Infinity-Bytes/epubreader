@@ -14,6 +14,14 @@
 
 @implementation SearchTextViewController
 
+@synthesize tableView;
+
+-(void) dealloc
+{
+    [tableView release];
+    [super dealloc];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
