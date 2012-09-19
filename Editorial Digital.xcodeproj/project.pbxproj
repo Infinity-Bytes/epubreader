@@ -160,6 +160,7 @@
 		7EEE60A415D31DAC00039462 /* EPubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPubViewController.xib; sourceTree = "<group>"; };
 		CC00188D15EEBCAA00B81F5C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CC00188E15EEBCAA00B81F5C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CC2A399516092E2000B66A60 /* ISearchTextDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISearchTextDelegate.h; sourceTree = "<group>"; };
 		CC5C48DB16041BA50009476A /* SearchTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextViewController.h; sourceTree = "<group>"; };
 		CC5C48DC16041BA50009476A /* SearchTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextViewController.m; sourceTree = "<group>"; };
 		CC5C48DD16041BA50009476A /* SearchTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTextViewController.xib; sourceTree = "<group>"; };
@@ -534,6 +535,7 @@
 				CC8BC05415D9BE2C000A330D /* ISpineArrayManagerDelegate.h */,
 				CC8819D615E708C60025D3C9 /* ISliderViewController.h */,
 				CC8D564415F6BE88000A4B40 /* IMainViewDelegate.h */,
+				CC2A399516092E2000B66A60 /* ISearchTextDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

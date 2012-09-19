@@ -17,7 +17,7 @@
 
 @implementation MainViewController
 
-@synthesize spineArrayDelegate, searchResViewController;
+@synthesize spineArrayDelegate, searchResViewController, searchTextDelegate;
 
 -(void)dealloc
 {
@@ -56,6 +56,7 @@
 {
     SearchTextViewController *searchTextViewController = [[SearchTextViewController new] initWithNibName:@"SearchTextViewController" bundle:nil];
     
+    [self setSearchTextDelegate:searchResViewController];
     //[searchTextViewController.tableView addSubview:[searchResViewController view]];
     searchTextViewController.tableView = [searchResViewController view];
     
@@ -83,8 +84,8 @@
 	if(!searching){
 		searching = YES;
 		
-        //B
-        //[SearchTextViewController.searchResViewController searchString:[searchBar text]];
+        
+        [searchTextDelegate searchString:[searchBar text]];
         [searchBar resignFirstResponder];
         
     }

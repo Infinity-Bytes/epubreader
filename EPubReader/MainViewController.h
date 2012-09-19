@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ISpineArrayManagerDelegate.h"
+#import "ISearchTextDelegate.h"
 #import "SearchResult.h"
 #import "SearchResultsViewController.h"
 #import "SearchTextViewController.h"
+
 
 @interface MainViewController : UIViewController<UISearchBarDelegate>{
     
@@ -25,6 +27,7 @@
 @property(retain, nonatomic) SearchTextViewController *searchTextViewController;
 @property(nonatomic, retain) id<ISpineArrayManagerDelegate>spineArrayDelegate;
 @property (nonatomic, retain) SearchResult* currentSearchResult;
+@property(nonatomic, assign) id<ISearchTextDelegate> searchTextDelegate;
 
 -(IBAction)showSearchResults:(id)sender;
 @end

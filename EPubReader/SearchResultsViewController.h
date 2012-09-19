@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ISpineArrayManagerDelegate.h"
 #import "IChapterDelegate.h"
+#import "ISearchTextDelegate.h"
 
 
-@interface SearchResultsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate> {
+@interface SearchResultsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate,ISearchTextDelegate> {
     UITableView* resultsTableView;
     NSMutableArray* results;
-   
-    
     int currentChapterIndex;
     NSString* currentQuery;
 }
